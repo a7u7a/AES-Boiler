@@ -1742,7 +1742,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="IC1" library="AES_lib" library_urn="urn:adsk.eagle:library:7241092" deviceset="MAX7219CNG" device="" package3d_urn="urn:adsk.eagle:package:7372139/3" value="MAX7219"/>
 <part name="IC2" library="AES_lib" library_urn="urn:adsk.eagle:library:7241092" deviceset="MAX7219CNG" device="" package3d_urn="urn:adsk.eagle:package:7372139/3" value="MAX7219"/>
 <part name="IC3" library="AES_lib" library_urn="urn:adsk.eagle:library:7241092" deviceset="MAX7219CNG" device="" package3d_urn="urn:adsk.eagle:package:7372139/3" value="MAX7219"/>
-<part name="SW1" library="AES_lib" library_urn="urn:adsk.eagle:library:7241092" deviceset="MRB_ROTARY_SWITCH" device="" package3d_urn="urn:adsk.eagle:package:7300523/7"/>
+<part name="SW1" library="AES_lib" library_urn="urn:adsk.eagle:library:7241092" deviceset="MRB_ROTARY_SWITCH" device="" package3d_urn="urn:adsk.eagle:package:7300523/7" value="ROTARY SWITCH"/>
 <part name="SEV10" library="AES_lib" library_urn="urn:adsk.eagle:library:7241092" deviceset="SEV-SEG_7503" device="" package3d_urn="urn:adsk.eagle:package:7319000/6"/>
 <part name="SEV9" library="AES_lib" library_urn="urn:adsk.eagle:library:7241092" deviceset="SEV-SEG_7503" device="" package3d_urn="urn:adsk.eagle:package:7319000/6"/>
 <part name="SEV8" library="AES_lib" library_urn="urn:adsk.eagle:library:7241092" deviceset="SEV-SEG_7503" device="" package3d_urn="urn:adsk.eagle:package:7319000/6"/>
@@ -1753,7 +1753,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="SEV3" library="AES_lib" library_urn="urn:adsk.eagle:library:7241092" deviceset="SEV-SEG_7503" device="" package3d_urn="urn:adsk.eagle:package:7319000/6"/>
 <part name="SEV2" library="AES_lib" library_urn="urn:adsk.eagle:library:7241092" deviceset="SEV-SEG_7503" device="" package3d_urn="urn:adsk.eagle:package:7319000/6"/>
 <part name="SEV1" library="AES_lib" library_urn="urn:adsk.eagle:library:7241092" deviceset="SEV-SEG_7503" device="" package3d_urn="urn:adsk.eagle:package:7319000/6"/>
-<part name="CONV" library="AES_lib" library_urn="urn:adsk.eagle:library:7241092" deviceset="3-5V_LOGIC_LVL_CONV" device="" package3d_urn="urn:adsk.eagle:package:7372124/3"/>
+<part name="CONV" library="AES_lib" library_urn="urn:adsk.eagle:library:7241092" deviceset="3-5V_LOGIC_LVL_CONV" device="" package3d_urn="urn:adsk.eagle:package:7372124/3" value="LOGIC LVL CONV"/>
 <part name="SUPPLY1" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="3.3V" device=""/>
 <part name="SUPPLY2" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="5V" device=""/>
 <part name="SUPPLY3" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="12V" device=""/>
@@ -1777,6 +1777,11 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="GND3" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
 <part name="GND4" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
 <part name="SUPPLY4" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="12V" device=""/>
+<part name="SUPPLY5" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="12V" device=""/>
+<part name="SUPPLY6" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="5V" device=""/>
+<part name="GND5" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
+<part name="GND6" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
+<part name="GND7" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -1888,9 +1893,9 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <attribute name="NAME" x="-101.6" y="192.024" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="-101.6" y="205.994" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="BTN" gate="G$1" x="-132.08" y="248.92" smashed="yes" rot="R180">
-<attribute name="NAME" x="-132.08" y="242.824" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="-132.08" y="256.794" size="1.778" layer="96" rot="R180"/>
+<instance part="BTN" gate="G$1" x="-101.6" y="248.92" smashed="yes" rot="R180">
+<attribute name="NAME" x="-101.6" y="242.824" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="-101.6" y="256.794" size="1.778" layer="96" rot="R180"/>
 </instance>
 <instance part="12VIN" gate="G$1" x="-101.6" y="226.06" smashed="yes" rot="R180">
 <attribute name="NAME" x="-101.6" y="219.964" size="1.778" layer="95" rot="R180"/>
@@ -1941,6 +1946,21 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <instance part="SUPPLY4" gate="G$1" x="-83.82" y="208.28" smashed="yes">
 <attribute name="VALUE" x="-83.82" y="211.074" size="1.778" layer="96" align="bottom-center"/>
 </instance>
+<instance part="SUPPLY5" gate="G$1" x="-55.88" y="231.14" smashed="yes">
+<attribute name="VALUE" x="-55.88" y="233.934" size="1.778" layer="96" align="bottom-center"/>
+</instance>
+<instance part="SUPPLY6" gate="G$1" x="-30.48" y="231.14" smashed="yes">
+<attribute name="VALUE" x="-30.48" y="233.934" size="1.778" layer="96" align="bottom-center"/>
+</instance>
+<instance part="GND5" gate="1" x="-43.18" y="213.36" smashed="yes">
+<attribute name="VALUE" x="-43.18" y="213.106" size="1.778" layer="96" align="top-center"/>
+</instance>
+<instance part="GND6" gate="1" x="302.26" y="157.48" smashed="yes">
+<attribute name="VALUE" x="302.26" y="157.226" size="1.778" layer="96" align="top-center"/>
+</instance>
+<instance part="GND7" gate="1" x="302.26" y="99.06" smashed="yes">
+<attribute name="VALUE" x="302.26" y="98.806" size="1.778" layer="96" align="top-center"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -1966,6 +1986,31 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="-99.06" y1="223.52" x2="-93.98" y2="223.52" width="0.1524" layer="91"/>
 <pinref part="GND4" gate="1" pin="GND"/>
 <wire x1="-93.98" y1="223.52" x2="-93.98" y2="220.98" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="VREG" gate="G$1" pin="GND"/>
+<pinref part="GND5" gate="1" pin="GND"/>
+<wire x1="-43.18" y1="218.44" x2="-43.18" y2="215.9" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="IC2" gate="G$1" pin="GND@1"/>
+<wire x1="304.8" y1="111.76" x2="302.26" y2="111.76" width="0.1524" layer="91"/>
+<pinref part="GND7" gate="1" pin="GND"/>
+<wire x1="302.26" y1="111.76" x2="302.26" y2="109.22" width="0.1524" layer="91"/>
+<pinref part="IC2" gate="G$1" pin="GND@2"/>
+<wire x1="302.26" y1="109.22" x2="302.26" y2="101.6" width="0.1524" layer="91"/>
+<wire x1="304.8" y1="109.22" x2="302.26" y2="109.22" width="0.1524" layer="91"/>
+<junction x="302.26" y="109.22"/>
+</segment>
+<segment>
+<pinref part="IC3" gate="G$1" pin="GND@1"/>
+<wire x1="304.8" y1="167.64" x2="302.26" y2="167.64" width="0.1524" layer="91"/>
+<pinref part="GND6" gate="1" pin="GND"/>
+<wire x1="302.26" y1="167.64" x2="302.26" y2="165.1" width="0.1524" layer="91"/>
+<pinref part="IC3" gate="G$1" pin="GND@2"/>
+<wire x1="302.26" y1="165.1" x2="302.26" y2="160.02" width="0.1524" layer="91"/>
+<wire x1="304.8" y1="165.1" x2="302.26" y2="165.1" width="0.1524" layer="91"/>
+<junction x="302.26" y="165.1"/>
 </segment>
 </net>
 <net name="N$2" class="0">
@@ -2005,6 +2050,20 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <junction x="-83.82" y="203.2"/>
 <pinref part="SUPPLY4" gate="G$1" pin="12V"/>
 <wire x1="-83.82" y1="208.28" x2="-83.82" y2="203.2" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="VREG" gate="G$1" pin="IN"/>
+<pinref part="SUPPLY5" gate="G$1" pin="12V"/>
+<wire x1="-50.8" y1="226.06" x2="-55.88" y2="226.06" width="0.1524" layer="91"/>
+<wire x1="-55.88" y1="226.06" x2="-55.88" y2="231.14" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="5V" class="0">
+<segment>
+<pinref part="VREG" gate="G$1" pin="OUT"/>
+<wire x1="-35.56" y1="226.06" x2="-30.48" y2="226.06" width="0.1524" layer="91"/>
+<pinref part="SUPPLY6" gate="G$1" pin="5V"/>
+<wire x1="-30.48" y1="226.06" x2="-30.48" y2="231.14" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
