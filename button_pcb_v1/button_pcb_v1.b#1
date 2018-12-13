@@ -157,7 +157,7 @@
 <layer number="255" name="routoute" color="7" fill="1" visible="yes" active="yes"/>
 </layers>
 <board>
-<fusionsync huburn="a.cGVyc29uYWw6dWUyOWQyYjdi" projecturn="a.cGVyc29uYWw6dWUyOWQyYjdiIzIwMTgxMTMwMTYzMTgyOTAx" f3durn="urn:adsk.wipprod:dm.lineage:K_lnejlhTFO0_kCaxYINUQ" pcbguid="7cc0ec74-97cc-4953-9a47-41e4ec11a13e" lastpulledtime="2018-12-12T10:51:54Z" lastsyncedchangeguid="81e10e5c-67ae-8f7d-8c53-cbb4536a1017"/>
+<fusionsync huburn="a.cGVyc29uYWw6dWUyOWQyYjdi" projecturn="a.cGVyc29uYWw6dWUyOWQyYjdiIzIwMTgxMTMwMTYzMTgyOTAx" f3durn="urn:adsk.wipprod:dm.lineage:K_lnejlhTFO0_kCaxYINUQ" pcbguid="7cc0ec74-97cc-4953-9a47-41e4ec11a13e" lastpulledtime="2018-12-12T10:51:54Z" lastsyncedchangeguid="efa3357b-d71f-c06c-1bd3-ce90f2470ee8"/>
 <plain>
 <hole x="-7.15" y="6.4" drill="3.2"/>
 <hole x="7.15" y="6.4" drill="3.2"/>
@@ -472,8 +472,6 @@ design rules under a new name.</description>
 <vertex x="-11.25" y="-10.5"/>
 <vertex x="11.25" y="-10.5"/>
 </polygon>
-</signal>
-<signal name="N$3">
 <polygon width="0.254" layer="1" isolate="0.3048">
 <vertex x="-11.2754" y="11.0334"/>
 <vertex x="-11.247353125" y="-10.5"/>

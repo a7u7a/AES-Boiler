@@ -1,0 +1,24 @@
+{
+    "Header": {
+        "Comment": "All values are metric (mm)",
+        "CreationDate": "2018-12-13T01:33:02Z",
+        "GenerationSoftware": {
+            "Application": "EAGLE",
+            "Vendor": "Autodesk",
+            "Version": "9.2.2"
+        },
+        "Part": "Single"
+    },
+    "Overall": {
+        "BoardThickness": 1.57,
+        "LayerNumber": 2,
+        "Name": {
+            "ProjectId": "button_pcb_v1"
+        },
+        "Owner": "Esteban Serrano <edserrano@uc.cl>",
+        "Size": {
+            "X": 22.523081,
+            "Y": 21.5334
+        }
+    }
+}

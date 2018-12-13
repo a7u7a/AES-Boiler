@@ -8,7 +8,7 @@
 </settings>
 <grid distance="30" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="1" altunitdist="mil" altunit="mil"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="no" active="yes"/>
+<layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="16" fill="1" visible="no" active="no"/>
 <layer number="3" name="Route3" color="17" fill="1" visible="no" active="no"/>
 <layer number="4" name="Route4" color="18" fill="1" visible="no" active="no"/>
@@ -23,11 +23,11 @@
 <layer number="13" name="Route13" color="21" fill="1" visible="no" active="no"/>
 <layer number="14" name="Route14" color="22" fill="1" visible="no" active="no"/>
 <layer number="15" name="Route15" color="23" fill="1" visible="no" active="no"/>
-<layer number="16" name="Bottom" color="1" fill="1" visible="no" active="yes"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
-<layer number="20" name="Dimension" color="24" fill="1" visible="yes" active="yes"/>
+<layer number="20" name="Dimension" color="24" fill="1" visible="no" active="yes"/>
 <layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
@@ -157,7 +157,7 @@
 <layer number="255" name="routoute" color="7" fill="1" visible="yes" active="yes"/>
 </layers>
 <board>
-<fusionsync huburn="a.cGVyc29uYWw6dWUyOWQyYjdi" projecturn="a.cGVyc29uYWw6dWUyOWQyYjdiIzIwMTgxMTMwMTYzMTgyOTAx" f3durn="urn:adsk.wipprod:dm.lineage:K_lnejlhTFO0_kCaxYINUQ" pcbguid="7cc0ec74-97cc-4953-9a47-41e4ec11a13e" lastpulledtime="2018-12-12T10:51:54Z" lastsyncedchangeguid="574a37d8-ef3c-78e3-1497-2844b7ff8e1a"/>
+<fusionsync huburn="a.cGVyc29uYWw6dWUyOWQyYjdi" projecturn="a.cGVyc29uYWw6dWUyOWQyYjdiIzIwMTgxMTMwMTYzMTgyOTAx" f3durn="urn:adsk.wipprod:dm.lineage:K_lnejlhTFO0_kCaxYINUQ" pcbguid="7cc0ec74-97cc-4953-9a47-41e4ec11a13e" lastpulledtime="2018-12-12T10:51:54Z" lastsyncedchangeguid="81e10e5c-67ae-8f7d-8c53-cbb4536a1017"/>
 <plain>
 <hole x="-7.15" y="6.4" drill="3.2"/>
 <hole x="7.15" y="6.4" drill="3.2"/>
@@ -272,12 +272,12 @@ design rules under a new name.</description>
 <param name="layerSetup" value="(1*16)"/>
 <param name="mtCopper" value="0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm"/>
 <param name="mtIsolate" value="1.5mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm"/>
-<param name="mdWireWire" value="6mil"/>
-<param name="mdWirePad" value="6mil"/>
-<param name="mdWireVia" value="6mil"/>
-<param name="mdPadPad" value="6mil"/>
-<param name="mdPadVia" value="6mil"/>
-<param name="mdViaVia" value="6mil"/>
+<param name="mdWireWire" value="8mil"/>
+<param name="mdWirePad" value="8mil"/>
+<param name="mdWireVia" value="8mil"/>
+<param name="mdPadPad" value="8mil"/>
+<param name="mdPadVia" value="8mil"/>
+<param name="mdViaVia" value="8mil"/>
 <param name="mdSmdPad" value="6mil"/>
 <param name="mdSmdVia" value="6mil"/>
 <param name="mdSmdSmd" value="6mil"/>
@@ -441,8 +441,8 @@ design rules under a new name.</description>
 <element name="BTN" library="AES_lib" library_urn="urn:adsk.eagle:library:7241092" package="BTN_12X12" package3d_urn="urn:adsk.eagle:package:7403552/2" value="BTN_12X12" x="0" y="-3.03" smashed="yes">
 <attribute name="NAME" x="0" y="-2.99" size="1.016" layer="25" font="vector" ratio="12" align="bottom-center"/>
 </element>
-<element name="J1" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" package="1X02_NO_SILK" package3d_urn="urn:adsk.eagle:package:38051/1" value="" x="-1.216" y="6.44" smashed="yes">
-<attribute name="VALUE" x="-2.486" y="4.408" size="0.6096" layer="27" font="vector" ratio="20"/>
+<element name="J1" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" package="1X02_NO_SILK" package3d_urn="urn:adsk.eagle:package:38051/1" value="" x="-1.216" y="7.202" smashed="yes">
+<attribute name="VALUE" x="-2.486" y="5.17" size="0.6096" layer="27" font="vector" ratio="20"/>
 </element>
 </elements>
 <signals>
@@ -451,8 +451,8 @@ design rules under a new name.</description>
 <contactref element="BTN" pad="3"/>
 <contactref element="BTN" pad="2"/>
 <wire x1="6.35" y1="-5.57" x2="1.3208" y2="-0.5408" width="0.381" layer="1"/>
-<wire x1="1.3208" y1="6.4368" x2="1.324" y2="6.44" width="0.381" layer="1"/>
-<wire x1="1.3208" y1="-0.5408" x2="1.3208" y2="6.4368" width="0.381" layer="1"/>
+<wire x1="1.3208" y1="7.1988" x2="1.324" y2="7.202" width="0.381" layer="1"/>
+<wire x1="1.3208" y1="-0.5408" x2="1.3208" y2="7.1988" width="0.381" layer="1"/>
 <wire x1="1.3208" y1="-0.5408" x2="-6.35" y2="-5.57" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$2">
@@ -460,16 +460,40 @@ design rules under a new name.</description>
 <contactref element="BTN" pad="1"/>
 <contactref element="BTN" pad="4"/>
 <wire x1="-6.35" y1="-0.49" x2="-3.3348" y2="-0.49" width="0.381" layer="1"/>
-<wire x1="-1.216" y1="1.6288" x2="-1.216" y2="6.44" width="0.381" layer="1"/>
+<wire x1="-1.216" y1="1.6288" x2="-1.216" y2="7.202" width="0.381" layer="1"/>
 <wire x1="-3.3348" y1="-0.49" x2="-1.216" y2="1.6288" width="0.381" layer="1"/>
 <wire x1="-1.216" y1="1.6288" x2="6.35" y2="-0.49" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="GND">
-<polygon width="0.254" layer="1" isolate="0.3048">
+<polygon width="0.254" layer="1" isolate="0.381">
 <vertex x="-11.25" y="10.5"/>
 <vertex x="-11.25" y="-10.5"/>
 <vertex x="11.25" y="-10.5"/>
 <vertex x="11.25" y="10.5"/>
+</polygon>
+</signal>
+<signal name="N$3">
+<polygon width="0.254" layer="1" isolate="0.3048">
+<vertex x="-9.240753125" y="11.0334" curve="90.072607"/>
+<vertex x="-11.27275" y="8.998825"/>
+<vertex x="-11.249996875" y="-8.470221875" curve="89.925455"/>
+<vertex x="-9.217996875" y="-10.5"/>
+<vertex x="9.218" y="-10.5" curve="90.072607"/>
+<vertex x="11.249996875" y="-8.465425"/>
+<vertex x="11.22724375" y="9.003621875" curve="89.925455"/>
+<vertex x="9.19524375" y="11.0334"/>
+</polygon>
+</signal>
+<signal name="N$4">
+<polygon width="0.254" layer="16" isolate="0.381">
+<vertex x="-9.240753125" y="11.0334" curve="90.072607"/>
+<vertex x="-11.27275" y="8.998825"/>
+<vertex x="-11.249996875" y="-8.470221875" curve="89.925455"/>
+<vertex x="-9.217996875" y="-10.5"/>
+<vertex x="9.218" y="-10.5" curve="90.072607"/>
+<vertex x="11.249996875" y="-8.465425"/>
+<vertex x="11.22724375" y="9.003621875" curve="89.925455"/>
+<vertex x="9.19524375" y="11.0334"/>
 </polygon>
 </signal>
 </signals>
