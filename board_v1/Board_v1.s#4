@@ -3615,6 +3615,9 @@ CONN_04
 <wire x1="-388.62" y1="464.82" x2="-358.14" y2="464.82" width="0.1524" layer="91"/>
 <junction x="-358.14" y="464.82"/>
 <label x="-386.08" y="464.82" size="1.778" layer="95"/>
+<label x="-337.82" y="185.42" size="1.778" layer="95"/>
+<label x="-309.88" y="355.6" size="1.778" layer="95"/>
+<label x="-314.96" y="464.82" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="LOAD" class="0">
@@ -3634,6 +3637,9 @@ CONN_04
 <pinref part="CONV" gate="G$1" pin="HV2"/>
 <wire x1="-388.62" y1="462.28" x2="-365.76" y2="462.28" width="0.1524" layer="91"/>
 <label x="-386.08" y="462.28" size="1.778" layer="95"/>
+<label x="-337.82" y="180.34" size="1.778" layer="95"/>
+<label x="-309.88" y="350.52" size="1.778" layer="95"/>
+<label x="-314.96" y="459.74" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="DIN" class="0">
@@ -3644,6 +3650,7 @@ CONN_04
 <pinref part="CONV" gate="G$1" pin="HV3"/>
 <wire x1="-388.62" y1="459.74" x2="-368.3" y2="459.74" width="0.1524" layer="91"/>
 <label x="-386.08" y="459.74" size="1.778" layer="95"/>
+<label x="-314.96" y="454.66" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$13" class="0">
@@ -3653,6 +3660,8 @@ CONN_04
 <pinref part="IC2" gate="G$1" pin="DIN"/>
 <wire x1="-350.52" y1="452.12" x2="-350.52" y2="345.44" width="0.1524" layer="91"/>
 <wire x1="-350.52" y1="345.44" x2="-284.48" y2="345.44" width="0.1524" layer="91"/>
+<label x="-309.88" y="345.44" size="1.778" layer="95"/>
+<label x="-314.96" y="452.12" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$14" class="0">
@@ -3662,6 +3671,8 @@ CONN_04
 <wire x1="-350.52" y1="342.9" x2="-350.52" y2="175.26" width="0.1524" layer="91"/>
 <pinref part="IC3" gate="G$1" pin="DIN"/>
 <wire x1="-350.52" y1="175.26" x2="-284.48" y2="175.26" width="0.1524" layer="91"/>
+<label x="-337.82" y="175.26" size="1.778" layer="95"/>
+<label x="-309.88" y="342.9" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="CLK3" class="0">

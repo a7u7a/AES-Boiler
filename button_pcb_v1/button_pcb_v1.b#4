@@ -3,12 +3,12 @@
 <eagle version="9.2.2">
 <drawing>
 <settings>
-<setting alwaysvectorfont="no"/>
+<setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="50" unitdist="mil" unit="mil" style="lines" multiple="1" display="no" altdistance="5" altunitdist="mil" altunit="mil"/>
+<grid distance="30" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="1" altunitdist="mil" altunit="mil"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
+<layer number="1" name="Top" color="4" fill="1" visible="no" active="yes"/>
 <layer number="2" name="Route2" color="16" fill="1" visible="no" active="no"/>
 <layer number="3" name="Route3" color="17" fill="1" visible="no" active="no"/>
 <layer number="4" name="Route4" color="18" fill="1" visible="no" active="no"/>
@@ -23,7 +23,7 @@
 <layer number="13" name="Route13" color="21" fill="1" visible="no" active="no"/>
 <layer number="14" name="Route14" color="22" fill="1" visible="no" active="no"/>
 <layer number="15" name="Route15" color="23" fill="1" visible="no" active="no"/>
-<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="no" active="yes"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
@@ -157,14 +157,18 @@
 <layer number="255" name="routoute" color="7" fill="1" visible="yes" active="yes"/>
 </layers>
 <board>
-<fusionsync huburn="a.cGVyc29uYWw6dWUyOWQyYjdi" projecturn="a.cGVyc29uYWw6dWUyOWQyYjdiIzIwMTgxMTMwMTYzMTgyOTAx" f3durn="urn:adsk.wipprod:dm.lineage:K_lnejlhTFO0_kCaxYINUQ" pcbguid="7cc0ec74-97cc-4953-9a47-41e4ec11a13e" lastpulledtime="2018-12-12T10:30:25Z" lastsyncedchangeguid="4347a05a-7b3e-4858-92e8-d07b2a64d77c"/>
+<fusionsync huburn="a.cGVyc29uYWw6dWUyOWQyYjdi" projecturn="a.cGVyc29uYWw6dWUyOWQyYjdiIzIwMTgxMTMwMTYzMTgyOTAx" f3durn="urn:adsk.wipprod:dm.lineage:K_lnejlhTFO0_kCaxYINUQ" pcbguid="7cc0ec74-97cc-4953-9a47-41e4ec11a13e" lastpulledtime="2018-12-12T10:51:54Z" lastsyncedchangeguid="574a37d8-ef3c-78e3-1497-2844b7ff8e1a"/>
 <plain>
-<hole x="4.1" y="16.9" drill="3.2"/>
-<hole x="18.4" y="16.9" drill="3.2"/>
-<wire x1="0" y1="0" x2="22.5" y2="0" width="0.254" layer="20"/>
-<wire x1="22.5" y1="0" x2="22.5" y2="21" width="0.254" layer="20"/>
-<wire x1="22.5" y1="21" x2="0" y2="21" width="0.254" layer="20"/>
-<wire x1="0" y1="21" x2="0" y2="0" width="0.254" layer="20"/>
+<hole x="-7.15" y="6.4" drill="3.2"/>
+<hole x="7.15" y="6.4" drill="3.2"/>
+<wire x1="-9.217996875" y1="-10.5" x2="9.218" y2="-10.5" width="0.254" layer="20"/>
+<wire x1="9.218" y1="-10.5" x2="11.249996875" y2="-8.465425" width="0.254" layer="20" curve="90.072607"/>
+<wire x1="11.249996875" y1="-8.465425" x2="11.22724375" y2="9.003621875" width="0.254" layer="20"/>
+<wire x1="11.22724375" y1="9.003621875" x2="9.19524375" y2="11.0334" width="0.254" layer="20" curve="89.925455"/>
+<wire x1="9.19524375" y1="11.0334" x2="-9.240753125" y2="11.0334" width="0.254" layer="20"/>
+<wire x1="-9.240753125" y1="11.0334" x2="-11.27275" y2="8.998825" width="0.254" layer="20" curve="90.072607"/>
+<wire x1="-11.27275" y1="8.998825" x2="-11.249996875" y2="-8.470221875" width="0.254" layer="20"/>
+<wire x1="-11.249996875" y1="-8.470221875" x2="-9.217996875" y2="-10.5" width="0.254" layer="20" curve="89.925455"/>
 </plain>
 <libraries>
 <library name="AES_lib" urn="urn:adsk.eagle:library:7241092">
@@ -193,6 +197,54 @@
 </package3d>
 </packages3d>
 </library>
+<library name="SparkFun-Connectors" urn="urn:adsk.eagle:library:513">
+<description>&lt;h3&gt;SparkFun Connectors&lt;/h3&gt;
+This library contains electrically-functional connectors. 
+&lt;br&gt;
+&lt;br&gt;
+We've spent an enormous amount of time creating and checking these footprints and parts, but it is &lt;b&gt; the end user's responsibility&lt;/b&gt; to ensure correctness and suitablity for a given componet or application. 
+&lt;br&gt;
+&lt;br&gt;If you enjoy using this library, please buy one of our products at &lt;a href=" www.sparkfun.com"&gt;SparkFun.com&lt;/a&gt;.
+&lt;br&gt;
+&lt;br&gt;
+&lt;b&gt;Licensing:&lt;/b&gt; Creative Commons ShareAlike 4.0 International - https://creativecommons.org/licenses/by-sa/4.0/ 
+&lt;br&gt;
+&lt;br&gt;
+You are welcome to use this library for commercial purposes. For attribution, we ask that when you begin to sell your device using our footprint, you email us with a link to the product being sold. We want bragging rights that we helped (in a very small part) to create your 8th world wonder. We would like the opportunity to feature your device on our homepage.</description>
+<packages>
+<package name="1X02_NO_SILK" urn="urn:adsk.eagle:footprint:37666/1" library_version="1">
+<description>&lt;h3&gt;Plated Through Hole - No Silk Outline&lt;/h3&gt;
+&lt;p&gt;Specifications:
+&lt;ul&gt;&lt;li&gt;Pin count:2&lt;/li&gt;
+&lt;li&gt;Pin pitch:0.1"&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;
+&lt;p&gt;Example device(s):
+&lt;ul&gt;&lt;li&gt;CONN_02&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;</description>
+<pad name="1" x="0" y="0" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="2" x="2.54" y="0" drill="1.016" diameter="1.8796" rot="R90"/>
+<rectangle x1="2.286" y1="-0.254" x2="2.794" y2="0.254" layer="51"/>
+<rectangle x1="-0.254" y1="-0.254" x2="0.254" y2="0.254" layer="51"/>
+<text x="-1.27" y="1.397" size="0.6096" layer="25" font="vector" ratio="20">&gt;NAME</text>
+<text x="-1.27" y="-2.032" size="0.6096" layer="27" font="vector" ratio="20">&gt;VALUE</text>
+</package>
+</packages>
+<packages3d>
+<package3d name="1X02_NO_SILK" urn="urn:adsk.eagle:package:38051/1" type="box" library_version="1">
+<description>Plated Through Hole - No Silk Outline
+Specifications:
+Pin count:2
+Pin pitch:0.1"
+
+Example device(s):
+CONN_02
+</description>
+<packageinstances>
+<packageinstance name="1X02_NO_SILK"/>
+</packageinstances>
+</package3d>
+</packages3d>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -202,7 +254,7 @@
 <class number="0" name="default" width="0" drill="0">
 </class>
 </classes>
-<designrules name="default">
+<designrules name="default *">
 <description language="de">&lt;b&gt;EAGLE Design Rules&lt;/b&gt;
 &lt;p&gt;
 Die Standard-Design-Rules sind so gewählt, dass sie für 
@@ -231,8 +283,8 @@ design rules under a new name.</description>
 <param name="mdSmdSmd" value="6mil"/>
 <param name="mdViaViaSameLayer" value="6mil"/>
 <param name="mnLayersViaInSmd" value="2"/>
-<param name="mdCopperDimension" value="40mil"/>
-<param name="mdDrill" value="6mil"/>
+<param name="mdCopperDimension" value="20mil"/>
+<param name="mdDrill" value="10mil"/>
 <param name="mdSmdStop" value="0mil"/>
 <param name="msWidth" value="6mil"/>
 <param name="msDrill" value="0.35mm"/>
@@ -386,14 +438,43 @@ design rules under a new name.</description>
 </pass>
 </autorouter>
 <elements>
-<element name="U$1" library="AES_lib" library_urn="urn:adsk.eagle:library:7241092" package="BTN_12X12" package3d_urn="urn:adsk.eagle:package:7403552/2" value="BTN_12X12" x="11.43" y="7.62" smashed="yes">
-<attribute name="NAME" x="11.43" y="7.66" size="1.016" layer="25" font="vector" ratio="12" align="bottom-center"/>
+<element name="BTN" library="AES_lib" library_urn="urn:adsk.eagle:library:7241092" package="BTN_12X12" package3d_urn="urn:adsk.eagle:package:7403552/2" value="BTN_12X12" x="0" y="-3.03" smashed="yes">
+<attribute name="NAME" x="0" y="-2.99" size="1.016" layer="25" font="vector" ratio="12" align="bottom-center"/>
+</element>
+<element name="J1" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" package="1X02_NO_SILK" package3d_urn="urn:adsk.eagle:package:38051/1" value="" x="-1.216" y="6.44" smashed="yes">
+<attribute name="VALUE" x="-2.486" y="4.408" size="0.6096" layer="27" font="vector" ratio="20"/>
 </element>
 </elements>
 <signals>
+<signal name="N$1">
+<contactref element="J1" pad="2"/>
+<contactref element="BTN" pad="3"/>
+<contactref element="BTN" pad="2"/>
+<wire x1="6.35" y1="-5.57" x2="1.3208" y2="-0.5408" width="0.381" layer="1"/>
+<wire x1="1.3208" y1="6.4368" x2="1.324" y2="6.44" width="0.381" layer="1"/>
+<wire x1="1.3208" y1="-0.5408" x2="1.3208" y2="6.4368" width="0.381" layer="1"/>
+<wire x1="1.3208" y1="-0.5408" x2="-6.35" y2="-5.57" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="N$2">
+<contactref element="J1" pad="1"/>
+<contactref element="BTN" pad="1"/>
+<contactref element="BTN" pad="4"/>
+<wire x1="-6.35" y1="-0.49" x2="-3.3348" y2="-0.49" width="0.381" layer="1"/>
+<wire x1="-1.216" y1="1.6288" x2="-1.216" y2="6.44" width="0.381" layer="1"/>
+<wire x1="-3.3348" y1="-0.49" x2="-1.216" y2="1.6288" width="0.381" layer="1"/>
+<wire x1="-1.216" y1="1.6288" x2="6.35" y2="-0.49" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="GND">
+<polygon width="0.254" layer="1" isolate="0.3048">
+<vertex x="-11.25" y="10.5"/>
+<vertex x="-11.25" y="-10.5"/>
+<vertex x="11.25" y="-10.5"/>
+<vertex x="11.25" y="10.5"/>
+</polygon>
+</signal>
 </signals>
 <mfgpreviewcolors>
-<mfgpreviewcolor name="soldermaskcolor" color="0xC8008000"/>
+<mfgpreviewcolor name="soldermaskcolor" color="0xC8000000"/>
 <mfgpreviewcolor name="silkscreencolor" color="0xFFFEFEFE"/>
 <mfgpreviewcolor name="backgroundcolor" color="0xFF282828"/>
 <mfgpreviewcolor name="coppercolor" color="0xFFFFBF00"/>
