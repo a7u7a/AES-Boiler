@@ -307,8 +307,8 @@
 <wire x1="54.864" y1="-36.322" x2="57.404" y2="-36.322" width="0.254" layer="21"/>
 <wire x1="57.404" y1="-36.322" x2="56.896" y2="-35.814" width="0.254" layer="21"/>
 <wire x1="57.404" y1="-36.322" x2="56.896" y2="-36.83" width="0.254" layer="21"/>
-<text x="44.704" y="-6.604" size="1.016" layer="21" font="vector" ratio="17">KETTLE META-CONTROLER
-rev1
+<text x="44.45" y="-6.858" size="1.016" layer="21" font="vector" ratio="17">KETTLE META-CONTROLER
+rev1. Jan-2019
 Design Informatics</text>
 </plain>
 <libraries>

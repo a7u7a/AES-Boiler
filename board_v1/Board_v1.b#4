@@ -157,7 +157,7 @@
 <layer number="255" name="routoute" color="7" fill="1" visible="yes" active="yes"/>
 </layers>
 <board>
-<fusionsync huburn="a.cGVyc29uYWw6dWUyOWQyYjdi" projecturn="a.cGVyc29uYWw6dWUyOWQyYjdiIzIwMTgxMTMwMTYzMTgyOTAx" f3durn="urn:adsk.wipprod:dm.lineage:sxZrocUeSG2TG627ctEE8w" pcbguid="917cffad-9e8c-4703-a0a4-4b083c0b7fc1" lastpulledtime="2018-12-12T09:45:08Z" lastsyncedchangeguid="ac0b7027-c1ae-b17c-1f80-0d41711699c1"/>
+<fusionsync huburn="a.cGVyc29uYWw6dWUyOWQyYjdi" projecturn="a.cGVyc29uYWw6dWUyOWQyYjdiIzIwMTgxMTMwMTYzMTgyOTAx" f3durn="urn:adsk.wipprod:dm.lineage:sxZrocUeSG2TG627ctEE8w" pcbguid="917cffad-9e8c-4703-a0a4-4b083c0b7fc1" lastpulledtime="2018-12-12T09:45:08Z" lastsyncedchangeguid="a66339bf-2ac5-32ff-0a11-109e3895002c"/>
 <plain>
 <wire x1="-45.90185" y1="-29.11888125" x2="-15.461840625" y2="-29.11888125" width="0.254" layer="21"/>
 <wire x1="-15.461840625" y1="-29.11888125" x2="-15.07261875" y2="-29.197490625" width="0.254" layer="21"/>
@@ -307,7 +307,7 @@
 <wire x1="54.864" y1="-36.322" x2="57.404" y2="-36.322" width="0.254" layer="21"/>
 <wire x1="57.404" y1="-36.322" x2="56.896" y2="-35.814" width="0.254" layer="21"/>
 <wire x1="57.404" y1="-36.322" x2="56.896" y2="-36.83" width="0.254" layer="21"/>
-<text x="49.022" y="-9.652" size="1.016" layer="21" font="vector" ratio="17">KETTLE META-CONTROLER
+<text x="49.022" y="-9.652" size="1.016" layer="21" font="vector" ratio="17">KETTLE META-CONTROLLER
 rev1. Jan-2019
 Design Informatics</text>
 </plain>
