@@ -11,7 +11,8 @@
   But the maximum default of 8 MAX72XX wil also work.
 */
 
-LedControl lc = LedControl(12, 11, 10, 2);
+ // Set pins and number of devices
+LedControl lc = LedControl(10, 12, 11, 2);
 
 /* we always wait a bit between updates of the display */
 unsigned long delaytime = 500;
@@ -27,6 +28,7 @@ const int buttonPin = 2;     // the number of the pushbutton pin
 int buttonState = 0;         // variable for reading the pushbutton status
 void setup() {
   Serial.begin(9600);
+  pinMode(LED_BUILTIN, OUTPUT);
   pinMode(buttonPin, INPUT);
   //we have already set the number of devices when we created the LedControl
   int devices = lc.getDeviceCount();
@@ -42,6 +44,13 @@ void setup() {
 }
 
 void loop() {
+
+  digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)
+  delay(500);                       // wait for a second
+  digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW
+  delay(500);
+
+  
   buttonState = digitalRead(buttonPin);
   //read the number cascaded devices
   int devices = lc.getDeviceCount();

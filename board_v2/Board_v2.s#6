@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="16" fill="1" visible="no" active="no"/>
@@ -2933,14 +2933,6 @@ CONN_04
 <part name="R6" library="AES_lib" library_urn="urn:adsk.eagle:library:7241092" deviceset="RESISTOR" device="" package3d_urn="urn:adsk.eagle:package:7386443/1" value="10k"/>
 <part name="GND19" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
 <part name="SUPPLY3" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="3.3V" device=""/>
-<part name="SW2" library="AES_lib" library_urn="urn:adsk.eagle:library:7241092" deviceset="MRB_ROTARY_SWITCH" device="" package3d_urn="urn:adsk.eagle:package:7300523/7" value="ROTARY SWITCH"/>
-<part name="R7" library="AES_lib" library_urn="urn:adsk.eagle:library:7241092" deviceset="RESISTOR" device="" package3d_urn="urn:adsk.eagle:package:7386443/1" value="10k"/>
-<part name="GND20" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
-<part name="SUPPLY5" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="3.3V" device=""/>
-<part name="R8" library="AES_lib" library_urn="urn:adsk.eagle:library:7241092" deviceset="RESISTOR" device="" package3d_urn="urn:adsk.eagle:package:7386443/1" value="10k"/>
-<part name="GND21" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
-<part name="R9" library="AES_lib" library_urn="urn:adsk.eagle:library:7241092" deviceset="RESISTOR" device="" package3d_urn="urn:adsk.eagle:package:7386443/1" value="10k"/>
-<part name="GND22" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -3000,47 +2992,20 @@ CONN_04
 <text x="-88.9" y="248.92" size="1.778" layer="91">n.c.</text>
 <text x="-88.9" y="271.78" size="1.778" layer="91">n.c.</text>
 <text x="-88.9" y="294.64" size="1.778" layer="91">n.c.</text>
-<text x="-459.74" y="411.48" size="1.778" layer="94">PRECHECKED
+<text x="-459.74" y="411.48" size="1.778" layer="94">CHECKED
 e1: 3.3v was not connected to rotary switch due to grid error</text>
 <wire x1="-462.28" y1="419.1" x2="-393.7" y2="419.1" width="0.1524" layer="94"/>
 <wire x1="-393.7" y1="419.1" x2="-393.7" y2="368.3" width="0.1524" layer="94"/>
 <wire x1="-393.7" y1="368.3" x2="-462.28" y2="368.3" width="0.1524" layer="94"/>
 <wire x1="-462.28" y1="368.3" x2="-462.28" y2="419.1" width="0.1524" layer="94"/>
-<text x="-543.56" y="581.66" size="2.54" layer="94" align="top-left">Board  v1: with review annotations
+<text x="-553.72" y="579.12" size="2.54" layer="94" align="top-left">Board  v1: with review annotations
 - convert holes to components
-- debounce buttons
-- add decoupling caps?
-- in board, polarity silkscreen from d1 is missing
-- add silk for connectors on both sides of board
-- decoupling capacitors for max7219 are not need to be connected directly and not via polygon pours
-- add polarity marks in connectors
-- for visibility: connector names must not be placed underneath male connector 
-- pads de c1 quedaron tapados con soldermask
-- distancia entre pads de R1 quedó demasiado corta al montar 
-- MAX controllers could have been placed on layer 2 so that they are not visible from outside
-- R6 silk should be on the other side</text>
+- debounce buttons</text>
 <wire x1="-480.06" y1="421.64" x2="-480.06" y2="365.76" width="0.1524" layer="94"/>
 <wire x1="-480.06" y1="365.76" x2="-525.78" y2="365.76" width="0.1524" layer="94"/>
 <wire x1="-525.78" y1="365.76" x2="-525.78" y2="421.64" width="0.1524" layer="94"/>
 <wire x1="-525.78" y1="421.64" x2="-480.06" y2="421.64" width="0.1524" layer="94"/>
-<text x="-523.24" y="414.02" size="1.778" layer="94">PRECHECKED</text>
-<text x="-591.82" y="556.26" size="1.778" layer="94">PRECHECKED</text>
-<wire x1="-594.36" y1="561.34" x2="-594.36" y2="513.08" width="0.1524" layer="94"/>
-<wire x1="-594.36" y1="513.08" x2="-553.72" y2="513.08" width="0.1524" layer="94"/>
-<wire x1="-553.72" y1="513.08" x2="-553.72" y2="561.34" width="0.1524" layer="94"/>
-<wire x1="-553.72" y1="561.34" x2="-594.36" y2="561.34" width="0.1524" layer="94"/>
-<text x="-591.82" y="505.46" size="1.778" layer="94">PRECHECKED</text>
-<wire x1="-525.78" y1="431.8" x2="-594.36" y2="431.8" width="0.1524" layer="94"/>
-<wire x1="-594.36" y1="431.8" x2="-594.36" y2="510.54" width="0.1524" layer="94"/>
-<wire x1="-594.36" y1="510.54" x2="-525.78" y2="510.54" width="0.1524" layer="94"/>
-<wire x1="-525.78" y1="510.54" x2="-525.78" y2="431.8" width="0.1524" layer="94"/>
-<text x="-518.16" y="436.88" size="1.778" layer="94">Solenoid control from arduino</text>
-<wire x1="-510.54" y1="497.84" x2="-510.54" y2="431.8" width="0.1524" layer="94"/>
-<wire x1="-510.54" y1="431.8" x2="-378.46" y2="431.8" width="0.1524" layer="94"/>
-<wire x1="-378.46" y1="431.8" x2="-378.46" y2="497.84" width="0.1524" layer="94"/>
-<wire x1="-378.46" y1="497.84" x2="-510.54" y2="497.84" width="0.1524" layer="94"/>
-<text x="-505.46" y="492.76" size="1.778" layer="94">PRECHECKED</text>
-<text x="-454.66" y="355.6" size="1.778" layer="94">How it should have been!</text>
+<text x="-523.24" y="414.02" size="1.778" layer="94">CHECKED</text>
 </plain>
 <instances>
 <instance part="FEATHERM0" gate="G$1" x="-477.52" y="490.22" smashed="yes" rot="R270"/>
@@ -3173,8 +3138,8 @@ e1: 3.3v was not connected to rotary switch due to grid error</text>
 <instance part="GND11" gate="1" x="-447.04" y="375.92" smashed="yes">
 <attribute name="VALUE" x="-447.04" y="375.666" size="1.778" layer="96" align="top-center"/>
 </instance>
-<instance part="SUPPLY11" gate="G$1" x="-454.66" y="403.86" smashed="yes">
-<attribute name="VALUE" x="-454.66" y="406.654" size="1.778" layer="96" align="bottom-center"/>
+<instance part="SUPPLY11" gate="G$1" x="-449.58" y="403.86" smashed="yes">
+<attribute name="VALUE" x="-449.58" y="406.654" size="1.778" layer="96" align="bottom-center"/>
 </instance>
 <instance part="SUPPLY12" gate="G$1" x="-299.72" y="469.9" smashed="yes">
 <attribute name="VALUE" x="-299.72" y="472.694" size="1.778" layer="96" align="bottom-center"/>
@@ -3293,34 +3258,6 @@ e1: 3.3v was not connected to rotary switch due to grid error</text>
 </instance>
 <instance part="SUPPLY3" gate="G$1" x="-487.68" y="408.94" smashed="yes">
 <attribute name="VALUE" x="-487.68" y="411.734" size="1.778" layer="96" align="bottom-center"/>
-</instance>
-<instance part="SW2" gate="G$1" x="-424.18" y="340.36" smashed="yes">
-<attribute name="NAME" x="-434.34" y="347.98" size="1.778" layer="95"/>
-<attribute name="VALUE" x="-434.34" y="327.66" size="1.778" layer="96"/>
-</instance>
-<instance part="R7" gate="G$1" x="-403.7965" y="327.66" smashed="yes" rot="R90">
-<attribute name="NAME" x="-405.3205" y="327.66" size="1.778" layer="95" font="vector" rot="R90" align="bottom-center"/>
-<attribute name="VALUE" x="-402.2725" y="327.66" size="1.778" layer="96" font="vector" rot="R90" align="top-center"/>
-</instance>
-<instance part="GND20" gate="1" x="-403.86" y="317.5" smashed="yes">
-<attribute name="VALUE" x="-403.86" y="317.246" size="1.778" layer="96" align="top-center"/>
-</instance>
-<instance part="SUPPLY5" gate="G$1" x="-449.58" y="347.98" smashed="yes">
-<attribute name="VALUE" x="-449.58" y="350.774" size="1.778" layer="96" align="bottom-center"/>
-</instance>
-<instance part="R8" gate="G$1" x="-393.6365" y="327.66" smashed="yes" rot="R90">
-<attribute name="NAME" x="-395.1605" y="327.66" size="1.778" layer="95" font="vector" rot="R90" align="bottom-center"/>
-<attribute name="VALUE" x="-392.1125" y="327.66" size="1.778" layer="96" font="vector" rot="R90" align="top-center"/>
-</instance>
-<instance part="GND21" gate="1" x="-393.7" y="317.5" smashed="yes">
-<attribute name="VALUE" x="-393.7" y="317.246" size="1.778" layer="96" align="top-center"/>
-</instance>
-<instance part="R9" gate="G$1" x="-383.4765" y="327.66" smashed="yes" rot="R90">
-<attribute name="NAME" x="-385.0005" y="327.66" size="1.778" layer="95" font="vector" rot="R90" align="bottom-center"/>
-<attribute name="VALUE" x="-381.9525" y="327.66" size="1.778" layer="96" font="vector" rot="R90" align="top-center"/>
-</instance>
-<instance part="GND22" gate="1" x="-383.54" y="317.5" smashed="yes">
-<attribute name="VALUE" x="-383.54" y="317.246" size="1.778" layer="96" align="top-center"/>
 </instance>
 </instances>
 <busses>
@@ -3450,24 +3387,6 @@ e1: 3.3v was not connected to rotary switch due to grid error</text>
 <pinref part="GND19" gate="1" pin="GND"/>
 <wire x1="-487.6165" y1="381" x2="-487.6165" y2="375.92" width="0.1524" layer="91"/>
 <wire x1="-487.6165" y1="375.92" x2="-487.68" y2="375.92" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="R7" gate="G$1" pin="1"/>
-<pinref part="GND20" gate="1" pin="GND"/>
-<wire x1="-403.7965" y1="322.58" x2="-403.86" y2="322.58" width="0.1524" layer="91"/>
-<wire x1="-403.86" y1="322.58" x2="-403.86" y2="320.04" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="R8" gate="G$1" pin="1"/>
-<pinref part="GND21" gate="1" pin="GND"/>
-<wire x1="-393.6365" y1="322.58" x2="-393.7" y2="322.58" width="0.1524" layer="91"/>
-<wire x1="-393.7" y1="322.58" x2="-393.7" y2="320.04" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="R9" gate="G$1" pin="1"/>
-<pinref part="GND22" gate="1" pin="GND"/>
-<wire x1="-383.4765" y1="322.58" x2="-383.54" y2="322.58" width="0.1524" layer="91"/>
-<wire x1="-383.54" y1="322.58" x2="-383.54" y2="320.04" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$2" class="0">
@@ -3611,14 +3530,6 @@ e1: 3.3v was not connected to rotary switch due to grid error</text>
 <wire x1="-439.42" y1="454.66" x2="-431.8" y2="454.66" width="0.1524" layer="91"/>
 <label x="-436.88" y="454.66" size="1.778" layer="95"/>
 </segment>
-<segment>
-<pinref part="SW2" gate="G$1" pin="1"/>
-<label x="-381" y="345.44" size="1.778" layer="95"/>
-<pinref part="R9" gate="G$1" pin="2"/>
-<wire x1="-414.02" y1="345.44" x2="-383.4765" y2="345.44" width="0.1524" layer="91"/>
-<wire x1="-383.4765" y1="345.44" x2="-383.4765" y2="332.74" width="0.1524" layer="91"/>
-<wire x1="-383.4765" y1="345.44" x2="-378.46" y2="345.44" width="0.1524" layer="91"/>
-</segment>
 </net>
 <net name="S2" class="0">
 <segment>
@@ -3630,14 +3541,6 @@ e1: 3.3v was not connected to rotary switch due to grid error</text>
 <pinref part="FEATHERM0" gate="G$1" pin="GPIO5"/>
 <wire x1="-439.42" y1="452.12" x2="-431.8" y2="452.12" width="0.1524" layer="91"/>
 <label x="-436.88" y="452.12" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="SW2" gate="G$1" pin="2"/>
-<label x="-391.16" y="342.9" size="1.778" layer="95"/>
-<wire x1="-414.02" y1="342.9" x2="-393.6365" y2="342.9" width="0.1524" layer="91"/>
-<pinref part="R8" gate="G$1" pin="2"/>
-<wire x1="-393.6365" y1="342.9" x2="-393.6365" y2="332.74" width="0.1524" layer="91"/>
-<wire x1="-393.6365" y1="342.9" x2="-388.62" y2="342.9" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="S3" class="0">
@@ -3651,14 +3554,6 @@ e1: 3.3v was not connected to rotary switch due to grid error</text>
 <wire x1="-439.42" y1="449.58" x2="-431.8" y2="449.58" width="0.1524" layer="91"/>
 <label x="-436.88" y="449.58" size="1.778" layer="95"/>
 </segment>
-<segment>
-<pinref part="SW2" gate="G$1" pin="3"/>
-<label x="-401.32" y="340.36" size="1.778" layer="95"/>
-<pinref part="R7" gate="G$1" pin="2"/>
-<wire x1="-403.7965" y1="332.74" x2="-403.7965" y2="340.36" width="0.1524" layer="91"/>
-<wire x1="-403.7965" y1="340.36" x2="-414.02" y2="340.36" width="0.1524" layer="91"/>
-<wire x1="-403.7965" y1="340.36" x2="-398.78" y2="340.36" width="0.1524" layer="91"/>
-</segment>
 </net>
 <net name="3.3V" class="0">
 <segment>
@@ -3668,13 +3563,15 @@ e1: 3.3v was not connected to rotary switch due to grid error</text>
 <wire x1="-500.38" y1="482.6" x2="-482.6" y2="482.6" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<wire x1="-446.9765" y1="398.78" x2="-454.66" y2="398.78" width="0.1524" layer="91"/>
-<wire x1="-454.66" y1="398.78" x2="-454.66" y2="403.86" width="0.1524" layer="91"/>
+<wire x1="-447.04" y1="401.32" x2="-449.58" y2="401.32" width="0.1524" layer="91"/>
+<wire x1="-449.58" y1="401.32" x2="-449.58" y2="403.86" width="0.1524" layer="91"/>
 <pinref part="SUPPLY11" gate="G$1" pin="3.3V"/>
+<wire x1="-447.04" y1="398.78" x2="-447.04" y2="401.32" width="0.1524" layer="91"/>
 <pinref part="SW1" gate="G$1" pin="C1"/>
 <wire x1="-446.9765" y1="398.78" x2="-436.88" y2="398.78" width="0.1524" layer="91"/>
 <pinref part="R4" gate="G$1" pin="2"/>
 <wire x1="-446.9765" y1="391.16" x2="-446.9765" y2="398.78" width="0.1524" layer="91"/>
+<wire x1="-446.9765" y1="398.78" x2="-447.04" y2="398.78" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="BTN" gate="G$1" pin="P$1"/>
@@ -3701,12 +3598,6 @@ e1: 3.3v was not connected to rotary switch due to grid error</text>
 <junction x="-487.68" y="398.78"/>
 <pinref part="SUPPLY3" gate="G$1" pin="3.3V"/>
 <pinref part="J1" gate="G$1" pin="4"/>
-</segment>
-<segment>
-<pinref part="SW2" gate="G$1" pin="C1"/>
-<pinref part="SUPPLY5" gate="G$1" pin="3.3V"/>
-<wire x1="-436.88" y1="342.9" x2="-449.58" y2="342.9" width="0.1524" layer="91"/>
-<wire x1="-449.58" y1="342.9" x2="-449.58" y2="347.98" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$1" class="0">
