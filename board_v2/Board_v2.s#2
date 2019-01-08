@@ -3040,6 +3040,7 @@ e1: 3.3v was not connected to rotary switch due to grid error</text>
 <wire x1="-378.46" y1="431.8" x2="-378.46" y2="497.84" width="0.1524" layer="94"/>
 <wire x1="-378.46" y1="497.84" x2="-510.54" y2="497.84" width="0.1524" layer="94"/>
 <text x="-505.46" y="492.76" size="1.778" layer="94">PRECHECKED</text>
+<text x="-454.66" y="355.6" size="1.778" layer="94">How it should have been!</text>
 </plain>
 <instances>
 <instance part="FEATHERM0" gate="G$1" x="-477.52" y="490.22" smashed="yes" rot="R270"/>

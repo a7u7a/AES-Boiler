@@ -1,6 +1,6 @@
-const int S1 = 10;
-const int S2 = 8;
-const int S3 = 7; // Also labeled 'SCL' on the Feather
+const int S1 = 6;
+const int S2 = 5;
+const int S3 = 21; // Pin 21 is also labeled 'SCL' on the Feather
 //const int BTN = 9;
 
 bool S1s;

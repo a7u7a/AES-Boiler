@@ -4198,28 +4198,10 @@ CONN_04
 <label x="-157.48" y="320.04" size="1.778" layer="95" rot="R90"/>
 </segment>
 <segment>
-<pinref part="SEV1" gate="G$1" pin="7DP"/>
 <wire x1="-81.28" y1="294.64" x2="-81.28" y2="294.623065625" width="0.1524" layer="91"/>
-<wire x1="-81.28" y1="294.623065625" x2="-91.4908" y2="294.623065625" width="0.1524" layer="91"/>
-<label x="-88.9" y="294.64" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="SEV2" gate="G$1" pin="7DP"/>
 <wire x1="-81.28" y1="271.78" x2="-81.28" y2="271.763065625" width="0.1524" layer="91"/>
-<wire x1="-81.28" y1="271.763065625" x2="-91.4908" y2="271.763065625" width="0.1524" layer="91"/>
-<label x="-88.9" y="271.78" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="SEV3" gate="G$1" pin="7DP"/>
-<wire x1="-81.28" y1="248.92" x2="-81.28" y2="248.903065625" width="0.1524" layer="91"/>
-<wire x1="-81.28" y1="248.903065625" x2="-91.4908" y2="248.903065625" width="0.1524" layer="91"/>
-<label x="-88.9" y="248.92" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="SEV4" gate="G$1" pin="7DP"/>
-<wire x1="-81.28" y1="226.06" x2="-81.28" y2="226.043065625" width="0.1524" layer="91"/>
-<wire x1="-81.28" y1="226.043065625" x2="-91.4908" y2="226.043065625" width="0.1524" layer="91"/>
-<label x="-88.9" y="226.06" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="SEGA3" class="0">
@@ -4532,38 +4514,14 @@ CONN_04
 <segment>
 <pinref part="SEV7" gate="G$1" pin="7DP"/>
 <wire x1="-157.48" y1="177.799996875" x2="-157.48" y2="177.8" width="0.1524" layer="91"/>
-<wire x1="-157.48" y1="177.8" x2="-144.78" y2="177.8" width="0.1524" layer="91"/>
-<label x="-154.94" y="177.8" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="SEV8" gate="G$1" pin="7DP"/>
-<wire x1="-157.48" y1="154.937175" x2="-144.78" y2="154.937175" width="0.1524" layer="91"/>
-<wire x1="-144.78" y1="154.937175" x2="-144.78" y2="154.94" width="0.1524" layer="91"/>
-<label x="-154.94" y="154.94" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="SEV9" gate="G$1" pin="7DP"/>
 <wire x1="-157.48" y1="121.919996875" x2="-157.48" y2="121.92" width="0.1524" layer="91"/>
-<wire x1="-157.48" y1="121.92" x2="-144.78" y2="121.92" width="0.1524" layer="91"/>
-<label x="-154.94" y="121.92" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="SEV10" gate="G$1" pin="7DP"/>
-<wire x1="-157.48" y1="99.057175" x2="-144.78" y2="99.057175" width="0.1524" layer="91"/>
-<wire x1="-144.78" y1="99.057175" x2="-144.78" y2="99.06" width="0.1524" layer="91"/>
-<label x="-154.94" y="99.06" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="SEV6" gate="G$1" pin="7DP"/>
 <wire x1="-157.48" y1="40.639996875" x2="-157.48" y2="40.64" width="0.1524" layer="91"/>
-<wire x1="-157.48" y1="40.64" x2="-144.78" y2="40.64" width="0.1524" layer="91"/>
-<label x="-154.94" y="40.64" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="SEV5" gate="G$1" pin="7DP"/>
-<wire x1="-157.48" y1="63.497175" x2="-144.78" y2="63.497175" width="0.1524" layer="91"/>
-<wire x1="-144.78" y1="63.497175" x2="-144.78" y2="63.5" width="0.1524" layer="91"/>
-<label x="-154.94" y="63.5" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="DIG42" class="0">
