@@ -3009,7 +3009,8 @@ e1: 3.3v was not connected to rotary switch due to grid error</text>
 - for visibility: connector names must not be placed underneath male connector 
 - pads de c1 quedaron tapados con soldermask
 - distancia entre pads de R1 quedó demasiado corta al montar 
-- MAX controllers could have been placed on layer 2 so that they are not visible from outside</text>
+- MAX controllers could have been placed on layer 2 so that they are not visible from outside
+- R6 silk should be on the other side</text>
 <wire x1="-480.06" y1="421.64" x2="-480.06" y2="365.76" width="0.1524" layer="94"/>
 <wire x1="-480.06" y1="365.76" x2="-525.78" y2="365.76" width="0.1524" layer="94"/>
 <wire x1="-525.78" y1="365.76" x2="-525.78" y2="421.64" width="0.1524" layer="94"/>
