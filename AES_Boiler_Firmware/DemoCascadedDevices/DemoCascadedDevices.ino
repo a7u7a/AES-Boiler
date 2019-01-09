@@ -14,6 +14,8 @@
  // Set pins and number of devices
 LedControl lc = LedControl(10, 12, 11, 2);
 
+
+
 /* we always wait a bit between updates of the display */
 unsigned long delaytime = 500;
 
@@ -29,7 +31,10 @@ const int S1 = 6;
 const int S2 = 5;
 const int S3 = 21; // Also labeled 'SCL' on the Feather
 
+int solenoidPin = A0;
+
 int buttonState = 0;         // variable for reading the pushbutton status
+
 void setup() {
   Serial.begin(9600);
   pinMode(LED_BUILTIN, OUTPUT);
@@ -45,6 +50,9 @@ void setup() {
     /* and clear the display */
     lc.clearDisplay(address);
   }
+  pinMode(solenoidPin, OUTPUT);
+  digitalWrite(solenoidPin, LOW);
+
 }
 
 void loop() {
