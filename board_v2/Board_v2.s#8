@@ -3028,7 +3028,9 @@ e1: 3.3v was not connected to rotary switch due to grid error</text>
 - distancia entre pads de R1 quedó demasiado corta al montar 
 - MAX controllers could have been placed on layer 2 so that they are not visible from outside
 - R6 silk should be on the other side
-- Put labels on header for secret button and reset button</text>
+- Put labels on header for secret button and reset button
+- move arduino and converter
+- turn arduino board  and converter upside down so components point to inside</text>
 <wire x1="-480.06" y1="421.64" x2="-480.06" y2="365.76" width="0.1524" layer="94"/>
 <wire x1="-480.06" y1="365.76" x2="-525.78" y2="365.76" width="0.1524" layer="94"/>
 <wire x1="-525.78" y1="365.76" x2="-525.78" y2="421.64" width="0.1524" layer="94"/>
@@ -3353,12 +3355,12 @@ e1: 3.3v was not connected to rotary switch due to grid error</text>
 <attribute name="NAME" x="-568.96" y="341.884" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="-568.96" y="355.854" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="R11" gate="G$1" x="-556.1965" y="335.28" smashed="yes" rot="R90">
-<attribute name="NAME" x="-557.7205" y="335.28" size="1.778" layer="95" font="vector" rot="R90" align="bottom-center"/>
-<attribute name="VALUE" x="-554.6725" y="335.28" size="1.778" layer="96" font="vector" rot="R90" align="top-center"/>
+<instance part="R11" gate="G$1" x="-551.1165" y="337.82" smashed="yes" rot="R90">
+<attribute name="NAME" x="-552.6405" y="337.82" size="1.778" layer="95" font="vector" rot="R90" align="bottom-center"/>
+<attribute name="VALUE" x="-549.5925" y="337.82" size="1.778" layer="96" font="vector" rot="R90" align="top-center"/>
 </instance>
-<instance part="GND25" gate="1" x="-556.26" y="322.58" smashed="yes">
-<attribute name="VALUE" x="-556.26" y="322.326" size="1.778" layer="96" align="top-center"/>
+<instance part="GND25" gate="1" x="-551.18" y="325.12" smashed="yes">
+<attribute name="VALUE" x="-551.18" y="324.866" size="1.778" layer="96" align="top-center"/>
 </instance>
 <instance part="SUPPLY18" gate="G$1" x="-556.26" y="355.6" smashed="yes">
 <attribute name="VALUE" x="-556.26" y="358.394" size="1.778" layer="96" align="bottom-center"/>
@@ -3525,8 +3527,8 @@ e1: 3.3v was not connected to rotary switch due to grid error</text>
 <segment>
 <pinref part="R11" gate="G$1" pin="1"/>
 <pinref part="GND25" gate="1" pin="GND"/>
-<wire x1="-556.1965" y1="330.2" x2="-556.1965" y2="325.12" width="0.1524" layer="91"/>
-<wire x1="-556.1965" y1="325.12" x2="-556.26" y2="325.12" width="0.1524" layer="91"/>
+<wire x1="-551.1165" y1="332.74" x2="-551.1165" y2="327.66" width="0.1524" layer="91"/>
+<wire x1="-551.1165" y1="327.66" x2="-551.18" y2="327.66" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$2" class="0">
@@ -3769,22 +3771,14 @@ e1: 3.3v was not connected to rotary switch due to grid error</text>
 </segment>
 <segment>
 <wire x1="-508" y1="347.98" x2="-487.68" y2="347.98" width="0.1524" layer="91"/>
-<pinref part="R10" gate="G$1" pin="2"/>
-<wire x1="-487.68" y1="347.98" x2="-487.68" y2="342.9" width="0.1524" layer="91"/>
-<wire x1="-487.68" y1="342.9" x2="-487.6165" y2="340.36" width="0.1524" layer="91"/>
 <wire x1="-487.68" y1="347.98" x2="-487.68" y2="358.14" width="0.1524" layer="91"/>
-<junction x="-487.68" y="347.98"/>
 <pinref part="SUPPLY17" gate="G$1" pin="3.3V"/>
 <pinref part="J2" gate="G$1" pin="4"/>
 </segment>
 <segment>
 <pinref part="BTN1" gate="G$1" pin="P$1"/>
 <wire x1="-566.42" y1="345.44" x2="-556.26" y2="345.44" width="0.1524" layer="91"/>
-<pinref part="R11" gate="G$1" pin="2"/>
-<wire x1="-556.26" y1="345.44" x2="-556.26" y2="340.36" width="0.1524" layer="91"/>
-<wire x1="-556.26" y1="340.36" x2="-556.1965" y2="340.36" width="0.1524" layer="91"/>
 <wire x1="-556.26" y1="345.44" x2="-556.26" y2="355.6" width="0.1524" layer="91"/>
-<junction x="-556.26" y="345.44"/>
 <pinref part="SUPPLY18" gate="G$1" pin="3.3V"/>
 </segment>
 </net>
@@ -4881,8 +4875,13 @@ e1: 3.3v was not connected to rotary switch due to grid error</text>
 </segment>
 <segment>
 <pinref part="BTN1" gate="G$1" pin="P$2"/>
-<wire x1="-566.42" y1="350.52" x2="-548.64" y2="350.52" width="0.1524" layer="91"/>
-<label x="-563.88" y="350.52" size="1.778" layer="95"/>
+<wire x1="-566.42" y1="350.52" x2="-551.18" y2="350.52" width="0.1524" layer="91"/>
+<label x="-546.1" y="350.52" size="1.778" layer="95"/>
+<pinref part="R11" gate="G$1" pin="2"/>
+<wire x1="-551.18" y1="350.52" x2="-538.48" y2="350.52" width="0.1524" layer="91"/>
+<wire x1="-551.18" y1="350.52" x2="-551.18" y2="342.9" width="0.1524" layer="91"/>
+<wire x1="-551.18" y1="342.9" x2="-551.1165" y2="342.9" width="0.1524" layer="91"/>
+<junction x="-551.18" y="350.52"/>
 </segment>
 </net>
 <net name="STA" class="0">
@@ -4898,8 +4897,13 @@ e1: 3.3v was not connected to rotary switch due to grid error</text>
 </segment>
 <segment>
 <pinref part="J2" gate="G$1" pin="3"/>
-<wire x1="-508" y1="345.44" x2="-500.38" y2="345.44" width="0.1524" layer="91"/>
-<label x="-505.46" y="345.44" size="1.778" layer="95"/>
+<label x="-485.14" y="345.44" size="1.778" layer="95"/>
+<pinref part="R10" gate="G$1" pin="2"/>
+<wire x1="-487.68" y1="342.9" x2="-487.6165" y2="340.36" width="0.1524" layer="91"/>
+<wire x1="-508" y1="345.44" x2="-487.68" y2="345.44" width="0.1524" layer="91"/>
+<wire x1="-487.68" y1="345.44" x2="-487.68" y2="342.9" width="0.1524" layer="91"/>
+<wire x1="-487.68" y1="345.44" x2="-480.06" y2="345.44" width="0.1524" layer="91"/>
+<junction x="-487.68" y="345.44"/>
 </segment>
 </net>
 </nets>
