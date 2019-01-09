@@ -2975,7 +2975,6 @@ CONN_04
 <text x="-439.42" y="472.44" size="1.778" layer="91">n.c.</text>
 <text x="-439.42" y="467.36" size="1.778" layer="91">n.c.</text>
 <text x="-482.6" y="480.06" size="1.778" layer="91" rot="MR0">n.c.</text>
-<text x="-482.6" y="474.98" size="1.778" layer="91" rot="MR0">n.c.</text>
 <text x="-482.6" y="472.44" size="1.778" layer="91" rot="MR0">n.c.</text>
 <text x="-482.6" y="469.9" size="1.778" layer="91" rot="MR0">n.c.</text>
 <text x="-482.6" y="467.36" size="1.778" layer="91" rot="MR0">n.c.</text>
@@ -2987,9 +2986,9 @@ CONN_04
 <text x="-482.6" y="452.12" size="1.778" layer="91" rot="MR0">n.c.</text>
 <text x="-482.6" y="449.58" size="1.778" layer="91" rot="MR0">n.c.</text>
 <text x="-482.6" y="447.04" size="1.778" layer="91" rot="MR0">n.c.</text>
-<wire x1="2.54" y1="-2.54" x2="2.54" y2="591.82" width="0.1524" layer="94"/>
-<wire x1="2.54" y1="591.82" x2="-612.14" y2="591.82" width="0.1524" layer="94"/>
-<wire x1="-612.14" y1="591.82" x2="-612.14" y2="-2.54" width="0.1524" layer="94"/>
+<wire x1="2.54" y1="-2.54" x2="2.54" y2="617.22" width="0.1524" layer="94"/>
+<wire x1="2.54" y1="617.22" x2="-612.14" y2="617.22" width="0.1524" layer="94"/>
+<wire x1="-612.14" y1="617.22" x2="-612.14" y2="-2.54" width="0.1524" layer="94"/>
 <wire x1="-612.14" y1="-2.54" x2="2.54" y2="-2.54" width="0.1524" layer="94"/>
 <wire x1="-137.16" y1="86.36" x2="-210.82" y2="86.36" width="0.1524" layer="94"/>
 <wire x1="-210.82" y1="86.36" x2="-210.82" y2="193.04" width="0.1524" layer="94"/>
@@ -3016,7 +3015,7 @@ See below for correct way</text>
 <wire x1="-393.7" y1="421.64" x2="-393.7" y2="368.3" width="0.1524" layer="94"/>
 <wire x1="-393.7" y1="368.3" x2="-462.28" y2="368.3" width="0.1524" layer="94"/>
 <wire x1="-462.28" y1="368.3" x2="-462.28" y2="421.64" width="0.1524" layer="94"/>
-<text x="-586.74" y="574.04" size="2.54" layer="94" align="top-left">Board  v1: with review annotations
+<text x="-589.28" y="601.98" size="2.54" layer="94" align="top-left">Board  v1: with review annotations
 - convert holes to components
 - debounce buttons
 - add decoupling caps?
@@ -3031,7 +3030,9 @@ See below for correct way</text>
 - R6 silk should be on the other side
 - Put labels on header for secret button and reset button
 - move arduino and converter
-- turn arduino board  and converter upside down so components point to inside</text>
+- turn arduino board  and converter upside down so components point to inside
+- remove al DP connections to seven segments!
+- fix grid error on symbols</text>
 <wire x1="-480.06" y1="424.18" x2="-480.06" y2="365.76" width="0.1524" layer="94"/>
 <wire x1="-480.06" y1="365.76" x2="-525.78" y2="365.76" width="0.1524" layer="94"/>
 <wire x1="-525.78" y1="365.76" x2="-525.78" y2="424.18" width="0.1524" layer="94"/>
@@ -3049,16 +3050,18 @@ see below for correct way</text>
 <wire x1="-594.36" y1="510.54" x2="-525.78" y2="510.54" width="0.1524" layer="94"/>
 <wire x1="-525.78" y1="510.54" x2="-525.78" y2="431.8" width="0.1524" layer="94"/>
 <text x="-518.16" y="436.88" size="1.778" layer="94">Solenoid control from arduino</text>
-<wire x1="-510.54" y1="497.84" x2="-510.54" y2="431.8" width="0.1524" layer="94"/>
+<wire x1="-510.54" y1="502.92" x2="-510.54" y2="431.8" width="0.1524" layer="94"/>
 <wire x1="-510.54" y1="431.8" x2="-378.46" y2="431.8" width="0.1524" layer="94"/>
-<wire x1="-378.46" y1="431.8" x2="-378.46" y2="497.84" width="0.1524" layer="94"/>
-<wire x1="-378.46" y1="497.84" x2="-510.54" y2="497.84" width="0.1524" layer="94"/>
+<wire x1="-378.46" y1="431.8" x2="-378.46" y2="502.92" width="0.1524" layer="94"/>
+<wire x1="-378.46" y1="502.92" x2="-510.54" y2="502.92" width="0.1524" layer="94"/>
 <text x="-505.46" y="492.76" size="1.778" layer="94">PRECHECKED
-e4: no connection from arduino to solenoid! only from converter to solenoid</text>
+e4: no connection from arduino to solenoid! only from converter to solenoid.
+A0 - A5 can be used for this</text>
 <text x="-454.66" y="355.6" size="1.778" layer="94">How it should have been!</text>
 <text x="-581.66" y="411.48" size="1.778" layer="94">PRECHECKED
 e3: This switch was not properly wired! 
 see below for correct way</text>
+<text x="-469.9" y="439.42" size="1.778" layer="94">This net was not on board v1</text>
 </plain>
 <instances>
 <instance part="FEATHERM0" gate="G$1" x="-477.52" y="490.22" smashed="yes" rot="R270"/>
@@ -3953,11 +3956,6 @@ see below for correct way</text>
 <wire x1="-157.48" y1="508" x2="-157.48" y2="497.84" width="0.1524" layer="91"/>
 <label x="-157.48" y="497.84" size="1.778" layer="95" rot="R90"/>
 </segment>
-<segment>
-<pinref part="IC1" gate="G$1" pin="SEGDP"/>
-<wire x1="-243.84" y1="426.72" x2="-256.54" y2="426.72" width="0.1524" layer="91"/>
-<label x="-254" y="426.72" size="1.778" layer="95"/>
-</segment>
 </net>
 <net name="SEGG1" class="0">
 <segment>
@@ -4398,11 +4396,6 @@ see below for correct way</text>
 </net>
 <net name="SEGDP2" class="0">
 <segment>
-<pinref part="IC2" gate="G$1" pin="SEGDP"/>
-<wire x1="-256.54" y1="304.8" x2="-241.3" y2="304.8" width="0.1524" layer="91"/>
-<label x="-254" y="304.8" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="BAR1" gate="G$1" pin="A8"/>
 <wire x1="-157.48" y1="330.2" x2="-157.48" y2="320.04" width="0.1524" layer="91"/>
 <label x="-157.48" y="320.04" size="1.778" layer="95" rot="R90"/>
@@ -4711,21 +4704,28 @@ see below for correct way</text>
 </net>
 <net name="SEGDP3" class="0">
 <segment>
-<pinref part="IC3" gate="G$1" pin="SEGDP"/>
-<wire x1="-256.54" y1="147.32" x2="-243.84" y2="147.32" width="0.1524" layer="91"/>
-<label x="-254" y="147.32" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="SEV7" gate="G$1" pin="7DP"/>
 <wire x1="-157.48" y1="177.799996875" x2="-157.48" y2="177.8" width="0.1524" layer="91"/>
+<wire x1="-157.48" y1="177.799996875" x2="-144.78" y2="177.799996875" width="0.1524" layer="91"/>
+<wire x1="-144.78" y1="177.799996875" x2="-144.78" y2="177.8" width="0.1524" layer="91"/>
+<junction x="-157.48" y="177.799996875"/>
+<label x="-149.86" y="177.8" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="SEV9" gate="G$1" pin="7DP"/>
 <wire x1="-157.48" y1="121.919996875" x2="-157.48" y2="121.92" width="0.1524" layer="91"/>
+<wire x1="-157.48" y1="121.919996875" x2="-142.24" y2="121.919996875" width="0.1524" layer="91"/>
+<wire x1="-142.24" y1="121.919996875" x2="-142.24" y2="119.38" width="0.1524" layer="91"/>
+<junction x="-157.48" y="121.919996875"/>
+<label x="-149.86" y="121.92" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="SEV6" gate="G$1" pin="7DP"/>
 <wire x1="-157.48" y1="40.639996875" x2="-157.48" y2="40.64" width="0.1524" layer="91"/>
+<wire x1="-157.48" y1="40.639996875" x2="-144.78" y2="40.639996875" width="0.1524" layer="91"/>
+<wire x1="-144.78" y1="40.639996875" x2="-144.78" y2="38.1" width="0.1524" layer="91"/>
+<junction x="-157.48" y="40.639996875"/>
+<label x="-149.86" y="40.64" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="DIG42" class="0">
@@ -4910,6 +4910,73 @@ see below for correct way</text>
 <wire x1="-487.68" y1="345.44" x2="-487.68" y2="342.9" width="0.1524" layer="91"/>
 <wire x1="-487.68" y1="345.44" x2="-480.06" y2="345.44" width="0.1524" layer="91"/>
 <junction x="-487.68" y="345.44"/>
+</segment>
+</net>
+<net name="SOL" class="0">
+<segment>
+<pinref part="FEATHERM0" gate="G$1" pin="GPIOA0"/>
+<wire x1="-482.6" y1="474.98" x2="-492.76" y2="474.98" width="0.1524" layer="91"/>
+<wire x1="-492.76" y1="474.98" x2="-492.76" y2="439.42" width="0.1524" layer="91"/>
+<wire x1="-492.76" y1="439.42" x2="-419.1" y2="439.42" width="0.1524" layer="91"/>
+<wire x1="-419.1" y1="439.42" x2="-419.1" y2="457.2" width="0.1524" layer="91"/>
+<pinref part="CONV" gate="G$1" pin="LV4"/>
+<wire x1="-419.1" y1="457.2" x2="-411.48" y2="457.2" width="0.1524" layer="91"/>
+<label x="-490.22" y="474.98" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="N$4" class="0">
+<segment>
+<pinref part="SEV4" gate="G$1" pin="7DP"/>
+<wire x1="-91.4908" y1="226.043065625" x2="-76.2" y2="226.043065625" width="0.1524" layer="91"/>
+<wire x1="-76.2" y1="226.043065625" x2="-76.2" y2="226.06" width="0.1524" layer="91"/>
+<label x="-78.74" y="226.06" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="N$5" class="0">
+<segment>
+<pinref part="SEV3" gate="G$1" pin="7DP"/>
+<wire x1="-91.4908" y1="248.903065625" x2="-73.66" y2="248.903065625" width="0.1524" layer="91"/>
+<wire x1="-73.66" y1="248.903065625" x2="-73.66" y2="248.92" width="0.1524" layer="91"/>
+<label x="-78.74" y="248.92" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="N$6" class="0">
+<segment>
+<pinref part="SEV2" gate="G$1" pin="7DP"/>
+<wire x1="-91.4908" y1="271.763065625" x2="-76.2" y2="271.763065625" width="0.1524" layer="91"/>
+<wire x1="-76.2" y1="271.763065625" x2="-76.2" y2="271.78" width="0.1524" layer="91"/>
+<label x="-78.74" y="271.78" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="N$7" class="0">
+<segment>
+<pinref part="SEV1" gate="G$1" pin="7DP"/>
+<wire x1="-91.4908" y1="294.623065625" x2="-91.4908" y2="294.64" width="0.1524" layer="91"/>
+<wire x1="-91.4908" y1="294.64" x2="-76.2" y2="294.64" width="0.1524" layer="91"/>
+<label x="-78.74" y="294.64" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="N$10" class="0">
+<segment>
+<pinref part="SEV8" gate="G$1" pin="7DP"/>
+<wire x1="-157.48" y1="154.937175" x2="-144.78" y2="154.937175" width="0.1524" layer="91"/>
+<wire x1="-144.78" y1="154.937175" x2="-144.78" y2="154.94" width="0.1524" layer="91"/>
+<label x="-147.32" y="154.94" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="N$11" class="0">
+<segment>
+<pinref part="SEV10" gate="G$1" pin="7DP"/>
+<wire x1="-157.48" y1="99.057175" x2="-144.78" y2="99.057175" width="0.1524" layer="91"/>
+<wire x1="-144.78" y1="99.057175" x2="-144.78" y2="96.52" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$12" class="0">
+<segment>
+<pinref part="SEV5" gate="G$1" pin="7DP"/>
+<wire x1="-157.48" y1="63.497175" x2="-142.24" y2="63.497175" width="0.1524" layer="91"/>
+<wire x1="-142.24" y1="63.497175" x2="-142.24" y2="63.5" width="0.1524" layer="91"/>
+<label x="-147.32" y="63.5" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
