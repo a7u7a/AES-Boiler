@@ -24,7 +24,11 @@ unsigned long delaytime = 500;
 */
 
 int wait = 50;
-const int buttonPin = 2;     // the number of the pushbutton pin
+// Rotary switch pins
+const int S1 = 6;
+const int S2 = 5;
+const int S3 = 21; // Also labeled 'SCL' on the Feather
+
 int buttonState = 0;         // variable for reading the pushbutton status
 void setup() {
   Serial.begin(9600);
@@ -51,7 +55,7 @@ void loop() {
   delay(500);
 
   
-  buttonState = digitalRead(buttonPin);
+  buttonState = digitalRead(S1);
   //read the number cascaded devices
   int devices = lc.getDeviceCount();
 
