@@ -1,9 +1,11 @@
+// 
+
 //We always have to include the library
 #include "LedControl.h"
 
  // Set pins and number of devices
  // Arguments: LedControl(dataPin,clockPin,csPin,numDevices)
-LedControl lc = LedControl(10, 12, 11, 2);
+LedControl lc = LedControl(10, 12, 11, 3);
 
 // Rotary switch pins
 const int S1 = 6;
@@ -21,7 +23,8 @@ int staBtnState = 0;
 int solenoidPin = A0;
 
 int wait = 50;
-unsigned long delaytime = 500;
+unsigned long delaytime = 10;
+
 
 void setup() {
   Serial.begin(9600);
@@ -30,12 +33,12 @@ void setup() {
   // Initialize pins
   pinMode(LED_BUILTIN, OUTPUT);
   pinMode(solenoidPin, OUTPUT);
+  digitalWrite(solenoidPin, LOW);
   pinMode(S1, INPUT);
   pinMode(S2, INPUT);
   pinMode(S3, INPUT);
   pinMode(usrBtnPin, INPUT);
   pinMode(staBtnPin, INPUT);
-  digitalWrite(solenoidPin, LOW);
 
   // Initialize display drivers
   int devices = lc.getDeviceCount();
@@ -49,24 +52,32 @@ void setup() {
   }
 }
 
-
 void loop() {
-  //read the number cascaded devices
   int devices=lc.getDeviceCount();
   
-  //we have to init all devices in a loop
-  for(int row=0;row<8;row++) {
-    for(int col=0;col<8;col++) {
-      for(int address=0;address<devices;address++) {
-        delay(delaytime);
+
+  // Iterate over devices
+  for(int address=0;address<devices;address++) {
+    // Iterate over rows
+    for(int row=0;row<8;row++) {
+      // Iterate over columns
+      for(int col=0;col<8;col++) {
         lc.setLed(address,row,col,true);
         delay(delaytime);
-        lc.setLed(address,row,col,false);
       }
     }
-  }
 }
 
+// Activate solenoid for a second
+digitalWrite(solenoidPin, HIGH);
+delay(1000);
+digitalWrite(solenoidPin, LOW);
+
+// Clear display
+for(int address=0;address<devices;address++) {
+    lc.clearDisplay(address);
+  }
+}
 
 
   void printNumber(int v) {
