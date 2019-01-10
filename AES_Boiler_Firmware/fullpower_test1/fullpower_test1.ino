@@ -49,27 +49,25 @@ void setup() {
   }
 }
 
+
 void loop() {
-
-  buttonState = digitalRead(S1);
   //read the number cascaded devices
-  int devices = lc.getDeviceCount();
-
-  for (int i = 0; i < 9; i++) {
-    if (buttonState == HIGH) {
-      printNumber(i);
-      lc.clearDisplay(wait);
-      Serial.println("hola");
-      delay(wait);
-    } else {
-       Serial.println("low");
-      lc.setLed(0, 0, i, true);
-      delay(wait);
-      lc.setLed(0, 0, i, false);
-      delay(wait);
+  int devices=lc.getDeviceCount();
+  
+  //we have to init all devices in a loop
+  for(int row=0;row<8;row++) {
+    for(int col=0;col<8;col++) {
+      for(int address=0;address<devices;address++) {
+        delay(delaytime);
+        lc.setLed(address,row,col,true);
+        delay(delaytime);
+        lc.setLed(address,row,col,false);
+      }
     }
   }
 }
+
+
 
   void printNumber(int v) {
     int ones;
