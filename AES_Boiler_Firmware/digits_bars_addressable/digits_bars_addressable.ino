@@ -1,4 +1,4 @@
-// Turns all leds on and activates solenoid for a second to test power consumption and functional status 
+// First attempt at abstracting 7seg and bar displays
 
 //We always have to include the library
 #include "LedControl.h"
