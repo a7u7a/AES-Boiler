@@ -23,7 +23,7 @@ int staBtnState = 0;
 int solenoidPin = A0;
 
 int wait = 50;
-unsigned long delaytime = 10;
+unsigned long delaytime = 30;
 
 
 void setup() {
@@ -53,41 +53,55 @@ void setup() {
 }
 
 void loop() {
-  int devices=lc.getDeviceCount();
-  
+  int position;
 
-  // Iterate over devices
-  for(int address=0;address<devices;address++) {
-    // Iterate over rows
-    for(int row=0;row<8;row++) {
-      // Iterate over columns
-      for(int col=0;col<8;col++) {
-        lc.setLed(address,row,col,true);
-        delay(delaytime);
-      }
-    }
-}
-
-// Activate solenoid for a second
-digitalWrite(solenoidPin, HIGH);
-delay(1000);
-digitalWrite(solenoidPin, LOW);
-
-// Clear display
-for(int address=0;address<devices;address++) {
-    lc.clearDisplay(address);
+  if (digitalRead(S1) == HIGH){
+    position = 0;
+    Serial.println("Position 0");
+    lc.clearDisplay(1);
+    lc.clearDisplay(2);
+    delay(1);
   }
+  if (digitalRead(S2) == HIGH){
+    position = 1;
+    Serial.println("Position 1");
+    lc.clearDisplay(1);
+    lc.clearDisplay(2);
+    delay(1);
+  }
+  if (digitalRead(S3) == HIGH){
+    position = 2;
+    Serial.println("Position 2");
+    lc.clearDisplay(1);
+    lc.clearDisplay(2);
+    delay(1);
+  }
+  
+  int devices=lc.getDeviceCount();
+
+  for(int count = 0;count<10;count++){
+  printSelNum(count*-1, position);
+  delay(delaytime*2);
+  }
+
+   // Print numbers on karma display counter
+  /*for(int countK = 0;countK<999;countK++){
+  printKarmaNum(countK);
+  delay(delaytime);
+  } 
+  */
 }
 
-
-  void printNumber(int v) {
+  // Function to display Karma number
+  void printKarmaNum(int v) {
     int ones;
     int tens;
     int hundreds;
+    int thousands;
 
     boolean negative = false;
 
-    if (v < -999 || v > 999)
+    if (v < -9999 || v > 9999)
       return;
     if (v < 0) {
       negative = true;
@@ -96,7 +110,11 @@ for(int address=0;address<devices;address++) {
     ones = v % 10;
     v = v / 10;
     tens = v % 10;
-    v = v / 10; hundreds = v;
+    v = v / 10; 
+    hundreds = v % 10;
+    v = v / 10;
+    thousands = v;
+
     if (negative) {
       //print character '-' in the leftmost column
       lc.setChar(0, 3, '-', false);
@@ -106,7 +124,61 @@ for(int address=0;address<devices;address++) {
       lc.setChar(0, 3, ' ', false);
     }
     //Now print the number digit by digit
-    lc.setDigit(1, 0, (byte)hundreds, false);
-    lc.setDigit(1, 0, (byte)tens, false);
-    lc.setDigit(1, 0, (byte)ones, false);
+    lc.setDigit(2, 0, (byte)thousands, false);
+    lc.setDigit(2, 1, (byte)hundreds, false);
+    lc.setDigit(2, 2, (byte)tens, false);
+    lc.setDigit(2, 3, (byte)ones, false);
+  }
+
+
+// Function to display rotary switch selection number
+// Arguments: printSelNum(display value, selection position)
+  void printSelNum(int v, int p) {
+    int ones;
+    int tens;
+    int address;
+    int tensDigit;
+    int onesDigit; 
+
+    boolean negative = false;
+
+    if (p == 0){
+    address = 1;
+    tensDigit = 3;
+    onesDigit = 4; 
+    }
+    if (p == 1){
+    address = 1;
+    tensDigit = 5;
+    onesDigit = 6;
+
+    }
+    if(p == 2){
+    address = 2;
+    tensDigit = 4;
+    onesDigit = 5;
+    }
+
+    if (v < -99 || v > 99)
+      return;
+    if (v < 0) {
+      negative = true;
+      v = v * -1;
+    }
+    ones = v % 10;
+    v = v / 10;
+    tens = v;
+    
+
+    if (negative) {
+      //print character '-' in the leftmost column
+      lc.setChar(address, tensDigit, '-', false);
+    }
+    else {
+      //print a blank in the sign column
+      lc.setChar(address, tensDigit, ' ', false);
+    }
+    //Now print the number digit by digit
+    //lc.setDigit(address, tensDigit, (byte)tens, false);
+    lc.setDigit(address, onesDigit, (byte)ones, false);
   }
