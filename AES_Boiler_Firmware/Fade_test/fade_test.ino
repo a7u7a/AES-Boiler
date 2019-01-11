@@ -1,4 +1,5 @@
-// Turns all leds on and activates solenoid for a second to test power consumption and functional status 
+// Simple fade test
+// Will light up all LEDs and then enter into a linear fade in and out loop 
 
 //We always have to include the library
 #include "LedControl.h"
@@ -54,13 +55,16 @@ void setup() {
 }
 
 void loop() {
+  
   int devices=lc.getDeviceCount();
   
   // Iterate over MAX devices
   for(int address=0;address<devices;address++) {
+    lc.setIntensity(address, 15);
     // Iterate over rows(Digits)
     for(int row=0;row<8;row++) {
       // Iterate over columns(Segments)
+      // Light up individual LEDs
       for(int col=0;col<8;col++) {
         lc.setLed(address,row,col,true);
         delay(delaytime);
@@ -68,10 +72,43 @@ void loop() {
     }
 }
 
-// Activate solenoid for a second
-digitalWrite(solenoidPin, HIGH);
-delay(1000);
-digitalWrite(solenoidPin, LOW);
+// Fade loop
+while(1){
+for (int intensity=15; intensity>0;intensity--){
+  //Serial.println("intensity");
+  for(int address=0;address<devices;address++) {
+    // Iterate over rows(Digits)
+    for(int row=0;row<8;row++) {
+      // Iterate over columns(Segments)
+      for(int col=0;col<8;col++) {
+        Serial.println(intensity);
+        lc.setIntensity(address, intensity);
+        
+        //delay(delaytime);
+      }
+    }
+  }
+  //delay(1);
+}
+
+for (int intensity=0; intensity<=15;intensity++){
+  //Serial.println("intensity");
+  for(int address=0;address<devices;address++) {
+    // Iterate over rows(Digits)
+    for(int row=0;row<8;row++) {
+      // Iterate over columns(Segments)
+      for(int col=0;col<8;col++) {
+        Serial.println(intensity);
+        lc.setIntensity(address, intensity);
+        
+        //delay(delaytime);
+      }
+    }
+  }
+  //delay(1);
+}
+
+}
 
 // Clear display
 for(int address=0;address<devices;address++) {
