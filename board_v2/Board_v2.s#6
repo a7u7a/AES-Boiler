@@ -2975,7 +2975,6 @@ CONN_04
 <text x="-439.42" y="472.44" size="1.778" layer="91">n.c.</text>
 <text x="-439.42" y="467.36" size="1.778" layer="91">n.c.</text>
 <text x="-482.6" y="480.06" size="1.778" layer="91" rot="MR0">n.c.</text>
-<text x="-482.6" y="474.98" size="1.778" layer="91" rot="MR0">n.c.</text>
 <text x="-482.6" y="472.44" size="1.778" layer="91" rot="MR0">n.c.</text>
 <text x="-482.6" y="469.9" size="1.778" layer="91" rot="MR0">n.c.</text>
 <text x="-482.6" y="467.36" size="1.778" layer="91" rot="MR0">n.c.</text>
@@ -3060,6 +3059,7 @@ A0 - A5 can be used for this</text>
 <text x="-581.66" y="411.48" size="1.778" layer="94">PRECHECKED
 e3: This switch was not properly wired! 
 see below for correct way</text>
+<text x="-469.9" y="439.42" size="1.778" layer="94">This net was not on board v1</text>
 </plain>
 <instances>
 <instance part="FEATHERM0" gate="G$1" x="-477.52" y="490.22" smashed="yes" rot="R270"/>
@@ -4911,6 +4911,17 @@ see below for correct way</text>
 <wire x1="-487.68" y1="345.44" x2="-487.68" y2="342.9" width="0.1524" layer="91"/>
 <wire x1="-487.68" y1="345.44" x2="-480.06" y2="345.44" width="0.1524" layer="91"/>
 <junction x="-487.68" y="345.44"/>
+</segment>
+</net>
+<net name="N$4" class="0">
+<segment>
+<pinref part="FEATHERM0" gate="G$1" pin="GPIOA0"/>
+<wire x1="-482.6" y1="474.98" x2="-490.22" y2="474.98" width="0.1524" layer="91"/>
+<wire x1="-490.22" y1="474.98" x2="-490.22" y2="439.42" width="0.1524" layer="91"/>
+<wire x1="-490.22" y1="439.42" x2="-419.1" y2="439.42" width="0.1524" layer="91"/>
+<wire x1="-419.1" y1="439.42" x2="-419.1" y2="457.2" width="0.1524" layer="91"/>
+<pinref part="CONV" gate="G$1" pin="LV4"/>
+<wire x1="-419.1" y1="457.2" x2="-411.48" y2="457.2" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>

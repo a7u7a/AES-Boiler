@@ -3032,7 +3032,8 @@ See below for correct way</text>
 - move arduino and converter
 - turn arduino board  and converter upside down so components point to inside
 - remove al DP connections to seven segments!
-- fix grid error on symbols</text>
+- fix grid error on symbols
+- add top and bottom labels for clarity</text>
 <wire x1="-480.06" y1="424.18" x2="-480.06" y2="365.76" width="0.1524" layer="94"/>
 <wire x1="-480.06" y1="365.76" x2="-525.78" y2="365.76" width="0.1524" layer="94"/>
 <wire x1="-525.78" y1="365.76" x2="-525.78" y2="424.18" width="0.1524" layer="94"/>

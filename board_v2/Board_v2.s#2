@@ -3063,7 +3063,7 @@ A0 - A5 can be used for this</text>
 e3: This switch was not properly wired! 
 see below for correct way</text>
 <text x="-469.9" y="439.42" size="1.778" layer="94">This net was not on board v1</text>
-<text x="-124.46" y="187.96" size="1.778" layer="94">There should not be connections to DP(decimal places) LED..
+<text x="-589.28" y="520.7" size="1.778" layer="94">There should not be connections to DP(decimal places) LED..
 This is probably due to grid errors in 7seg symbols</text>
 </plain>
 <instances>

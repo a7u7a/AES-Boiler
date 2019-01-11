@@ -78,36 +78,24 @@ for (int intensity=15; intensity>0;intensity--){
   //Serial.println("intensity");
   for(int address=0;address<devices;address++) {
     // Iterate over rows(Digits)
-    for(int row=0;row<8;row++) {
-      // Iterate over columns(Segments)
-      for(int col=0;col<8;col++) {
-        Serial.println(intensity);
         lc.setIntensity(address, intensity);
-        
+        delay(6);
         //delay(delaytime);
       }
     }
-  }
   //delay(1);
-}
+
 
 for (int intensity=0; intensity<=15;intensity++){
   //Serial.println("intensity");
   for(int address=0;address<devices;address++) {
     // Iterate over rows(Digits)
-    for(int row=0;row<8;row++) {
-      // Iterate over columns(Segments)
-      for(int col=0;col<8;col++) {
-        Serial.println(intensity);
         lc.setIntensity(address, intensity);
-        
+        delay(12);
         //delay(delaytime);
       }
     }
-  }
-  //delay(1);
-}
-
+delay(200);
 }
 
 // Clear display
@@ -115,35 +103,3 @@ for(int address=0;address<devices;address++) {
     lc.clearDisplay(address);
   }
 }
-
-
-  void printNumber(int v) {
-    int ones;
-    int tens;
-    int hundreds;
-
-    boolean negative = false;
-
-    if (v < -999 || v > 999)
-      return;
-    if (v < 0) {
-      negative = true;
-      v = v * -1;
-    }
-    ones = v % 10;
-    v = v / 10;
-    tens = v % 10;
-    v = v / 10; hundreds = v;
-    if (negative) {
-      //print character '-' in the leftmost column
-      lc.setChar(0, 3, '-', false);
-    }
-    else {
-      //print a blank in the sign column
-      lc.setChar(0, 3, ' ', false);
-    }
-    //Now print the number digit by digit
-    lc.setDigit(1, 0, (byte)hundreds, false);
-    lc.setDigit(1, 0, (byte)tens, false);
-    lc.setDigit(1, 0, (byte)ones, false);
-  }

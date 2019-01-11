@@ -3035,7 +3035,8 @@ See below for correct way</text>
 - fix grid error on symbols
 - add top and bottom labels for clarity
 - There should not be connections to DP(decimal places) LED..This is probably due to grid errors in 7seg symbols
-- Rotary switch should(?) be replaced with rotary encoder</text>
+- Rotary switch should(?) be replaced with rotary encoder
+- add EEPROM to store karma points </text>
 <wire x1="-480.06" y1="424.18" x2="-480.06" y2="365.76" width="0.1524" layer="94"/>
 <wire x1="-480.06" y1="365.76" x2="-525.78" y2="365.76" width="0.1524" layer="94"/>
 <wire x1="-525.78" y1="365.76" x2="-525.78" y2="424.18" width="0.1524" layer="94"/>
