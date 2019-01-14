@@ -1,4 +1,4 @@
-// First attempt at abstracting 7seg and bar displays
+// Select a position with the rotary switch and light up the corresponding digits in the display
 
 //We always have to include the library
 #include "LedControl.h"

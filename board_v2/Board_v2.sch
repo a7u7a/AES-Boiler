@@ -3015,7 +3015,7 @@ See below for correct way</text>
 <wire x1="-393.7" y1="421.64" x2="-393.7" y2="368.3" width="0.1524" layer="94"/>
 <wire x1="-393.7" y1="368.3" x2="-462.28" y2="368.3" width="0.1524" layer="94"/>
 <wire x1="-462.28" y1="368.3" x2="-462.28" y2="421.64" width="0.1524" layer="94"/>
-<text x="-589.28" y="601.98" size="2.54" layer="94" align="top-left">Board  v1: with review annotations
+<text x="-584.2" y="612.14" size="2.54" layer="94" align="top-left">Board  v1: with review annotations
 - convert holes to components
 - debounce buttons
 - add decoupling caps?
@@ -3036,7 +3036,9 @@ See below for correct way</text>
 - add top and bottom labels for clarity
 - There should not be connections to DP(decimal places) LED..This is probably due to grid errors in 7seg symbols
 - Rotary switch should(?) be replaced with rotary encoder
-- add EEPROM to store karma points </text>
+- add EEPROM to store karma points 
+- SEGDP nets not properly connected!
+- modify DP on MAX symbol so it sits above the other digits(because it is first in the ledcontrol library)</text>
 <wire x1="-480.06" y1="424.18" x2="-480.06" y2="365.76" width="0.1524" layer="94"/>
 <wire x1="-480.06" y1="365.76" x2="-525.78" y2="365.76" width="0.1524" layer="94"/>
 <wire x1="-525.78" y1="365.76" x2="-525.78" y2="424.18" width="0.1524" layer="94"/>
@@ -3066,6 +3068,9 @@ A0 - A5 can be used for this</text>
 e3: This switch was not properly wired! 
 see below for correct way</text>
 <text x="-469.9" y="439.42" size="1.778" layer="94">This net was not on board v1</text>
+<text x="-276.86" y="477.52" size="1.778" layer="94">Address 0</text>
+<text x="-276.86" y="350.52" size="1.778" layer="94">Address 1</text>
+<text x="-276.86" y="193.04" size="1.778" layer="94">Address 2</text>
 </plain>
 <instances>
 <instance part="FEATHERM0" gate="G$1" x="-477.52" y="490.22" smashed="yes" rot="R270"/>
@@ -3960,6 +3965,11 @@ see below for correct way</text>
 <wire x1="-157.48" y1="508" x2="-157.48" y2="497.84" width="0.1524" layer="91"/>
 <label x="-157.48" y="497.84" size="1.778" layer="95" rot="R90"/>
 </segment>
+<segment>
+<pinref part="IC1" gate="G$1" pin="SEGDP"/>
+<wire x1="-256.54" y1="426.72" x2="-243.84" y2="426.72" width="0.1524" layer="91"/>
+<label x="-254" y="426.72" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="SEGG1" class="0">
 <segment>
@@ -4403,6 +4413,11 @@ see below for correct way</text>
 <pinref part="BAR1" gate="G$1" pin="A8"/>
 <wire x1="-157.48" y1="330.2" x2="-157.48" y2="320.04" width="0.1524" layer="91"/>
 <label x="-157.48" y="320.04" size="1.778" layer="95" rot="R90"/>
+</segment>
+<segment>
+<pinref part="IC2" gate="G$1" pin="SEGDP"/>
+<wire x1="-256.54" y1="304.8" x2="-241.3" y2="304.8" width="0.1524" layer="91"/>
+<label x="-254" y="304.8" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="SEGA3" class="0">

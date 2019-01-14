@@ -3032,7 +3032,8 @@ See below for correct way</text>
 - move arduino and converter
 - turn arduino board  and converter upside down so components point to inside
 - remove al DP connections to seven segments!
-- fix grid error on symbols</text>
+- fix grid error on symbols
+- add top and bottom labels for clarity</text>
 <wire x1="-480.06" y1="424.18" x2="-480.06" y2="365.76" width="0.1524" layer="94"/>
 <wire x1="-480.06" y1="365.76" x2="-525.78" y2="365.76" width="0.1524" layer="94"/>
 <wire x1="-525.78" y1="365.76" x2="-525.78" y2="424.18" width="0.1524" layer="94"/>
@@ -3062,6 +3063,8 @@ A0 - A5 can be used for this</text>
 e3: This switch was not properly wired! 
 see below for correct way</text>
 <text x="-469.9" y="439.42" size="1.778" layer="94">This net was not on board v1</text>
+<text x="-124.46" y="187.96" size="1.778" layer="94">There should not be connections to DP(decimal places) LED..
+This is probably due to grid errors in 7seg symbols</text>
 </plain>
 <instances>
 <instance part="FEATHERM0" gate="G$1" x="-477.52" y="490.22" smashed="yes" rot="R270"/>
@@ -4715,7 +4718,6 @@ see below for correct way</text>
 <pinref part="SEV9" gate="G$1" pin="7DP"/>
 <wire x1="-157.48" y1="121.919996875" x2="-157.48" y2="121.92" width="0.1524" layer="91"/>
 <wire x1="-157.48" y1="121.919996875" x2="-142.24" y2="121.919996875" width="0.1524" layer="91"/>
-<wire x1="-142.24" y1="121.919996875" x2="-142.24" y2="119.38" width="0.1524" layer="91"/>
 <junction x="-157.48" y="121.919996875"/>
 <label x="-149.86" y="121.92" size="1.778" layer="95"/>
 </segment>
@@ -4723,7 +4725,6 @@ see below for correct way</text>
 <pinref part="SEV6" gate="G$1" pin="7DP"/>
 <wire x1="-157.48" y1="40.639996875" x2="-157.48" y2="40.64" width="0.1524" layer="91"/>
 <wire x1="-157.48" y1="40.639996875" x2="-144.78" y2="40.639996875" width="0.1524" layer="91"/>
-<wire x1="-144.78" y1="40.639996875" x2="-144.78" y2="38.1" width="0.1524" layer="91"/>
 <junction x="-157.48" y="40.639996875"/>
 <label x="-149.86" y="40.64" size="1.778" layer="95"/>
 </segment>
@@ -4929,7 +4930,7 @@ see below for correct way</text>
 <pinref part="SEV4" gate="G$1" pin="7DP"/>
 <wire x1="-91.4908" y1="226.043065625" x2="-76.2" y2="226.043065625" width="0.1524" layer="91"/>
 <wire x1="-76.2" y1="226.043065625" x2="-76.2" y2="226.06" width="0.1524" layer="91"/>
-<label x="-78.74" y="226.06" size="1.778" layer="95"/>
+<label x="-83.82" y="226.06" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$5" class="0">
@@ -4937,7 +4938,7 @@ see below for correct way</text>
 <pinref part="SEV3" gate="G$1" pin="7DP"/>
 <wire x1="-91.4908" y1="248.903065625" x2="-73.66" y2="248.903065625" width="0.1524" layer="91"/>
 <wire x1="-73.66" y1="248.903065625" x2="-73.66" y2="248.92" width="0.1524" layer="91"/>
-<label x="-78.74" y="248.92" size="1.778" layer="95"/>
+<label x="-83.82" y="248.92" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$6" class="0">
@@ -4945,7 +4946,7 @@ see below for correct way</text>
 <pinref part="SEV2" gate="G$1" pin="7DP"/>
 <wire x1="-91.4908" y1="271.763065625" x2="-76.2" y2="271.763065625" width="0.1524" layer="91"/>
 <wire x1="-76.2" y1="271.763065625" x2="-76.2" y2="271.78" width="0.1524" layer="91"/>
-<label x="-78.74" y="271.78" size="1.778" layer="95"/>
+<label x="-83.82" y="271.78" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$7" class="0">
@@ -4953,7 +4954,7 @@ see below for correct way</text>
 <pinref part="SEV1" gate="G$1" pin="7DP"/>
 <wire x1="-91.4908" y1="294.623065625" x2="-91.4908" y2="294.64" width="0.1524" layer="91"/>
 <wire x1="-91.4908" y1="294.64" x2="-76.2" y2="294.64" width="0.1524" layer="91"/>
-<label x="-78.74" y="294.64" size="1.778" layer="95"/>
+<label x="-83.82" y="294.64" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$10" class="0">
@@ -4968,7 +4969,7 @@ see below for correct way</text>
 <segment>
 <pinref part="SEV10" gate="G$1" pin="7DP"/>
 <wire x1="-157.48" y1="99.057175" x2="-144.78" y2="99.057175" width="0.1524" layer="91"/>
-<wire x1="-144.78" y1="99.057175" x2="-144.78" y2="96.52" width="0.1524" layer="91"/>
+<label x="-149.86" y="99.06" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$12" class="0">

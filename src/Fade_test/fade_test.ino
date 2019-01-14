@@ -14,14 +14,14 @@ const int S2 = 5;
 const int S3 = 21; // Also labeled 'SCL' on the Feather
 
 // Button pins
-int usrBtnPin = 9; // User button
-int staBtnPin = 20; // State change button. Pin also labeled 'SDA' on the Feather
+const int usrBtnPin = 9; // User button
+const int staBtnPin = 20; // State change button. Pin also labeled 'SDA' on the Feather
 
 int usrBtnState = 0;
 int staBtnState = 0;
 
 // Solenoid pin
-int solenoidPin = A0;
+const int solenoidPin = A0;
 
 int wait = 50;
 unsigned long delaytime = 10;
