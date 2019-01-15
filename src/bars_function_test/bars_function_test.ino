@@ -28,7 +28,8 @@ int staBtnState = 0;
 int solenoidPin = A0;
 
 int wait = 50;
-unsigned long delaytime = 50;
+
+unsigned long delaytime = 20;
 
 
 void setup() {
@@ -60,17 +61,33 @@ void setup() {
 
 
 void loop() {
-  int devices = lc.getDeviceCount();
 
-  //Green leds progression
-  for (int pos=0;pos<36;pos++){
-    lc.setLed(barGreen[pos][0],barGreen[pos][1],barGreen[pos][2],true);
-    delay(10);
-  }
-  // Clear display
+  //test display function
+  displayBar(random(10,36), 'r');  
+
+// Clear display
+  int devices = lc.getDeviceCount();
 for(int address=0;address<devices;address++) {
     lc.clearDisplay(address);
   }
+  delay(100);
+}
+
+// Function definition
+void displayBar(int v, char c){
+for (int pos=0;pos<v;pos++){
+  if(c=='g'){
+    lc.setLed(barGreen[pos][0],barGreen[pos][1],barGreen[pos][2],true);
+  }
+  else
+  {
+    lc.setLed(barRed[pos][0],barRed[pos][1],barRed[pos][2],true);
+    }
+    delay(delaytime);
+  }
+
+}
+ /* }
   //Red leds progression
   for (int pos=0;pos<36;pos++){
     lc.setLed(barRed[pos][0],barRed[pos][1],barRed[pos][2],true);
