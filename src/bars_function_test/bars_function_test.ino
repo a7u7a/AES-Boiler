@@ -29,7 +29,7 @@ int solenoidPin = A0;
 
 int wait = 50;
 
-unsigned long delaytime = 20;
+unsigned long delaytime = 15;
 
 
 void setup() {
@@ -61,82 +61,39 @@ void setup() {
 
 
 void loop() {
+  //start with random values
+ int grid = random(3,26);
+ int stor = random(2,10);
 
-  //test display function
-  displayBar(random(10,36), 'r');  
-
+  displayBar(grid, stor);  
+ delay(500);
 // Clear display
   int devices = lc.getDeviceCount();
 for(int address=0;address<devices;address++) {
     lc.clearDisplay(address);
   }
-  delay(100);
+ 
 }
 
+
+
 // Function definition
-void displayBar(int v, char c){
-for (int pos=0;pos<v;pos++){
-  if(c=='g'){
-    lc.setLed(barGreen[pos][0],barGreen[pos][1],barGreen[pos][2],true);
-  }
-  else
-  {
-    lc.setLed(barRed[pos][0],barRed[pos][1],barRed[pos][2],true);
+// displayBar(grid value, store value, color)
+void displayBar(int g, int s){
+  // display grid value
+  for (int pos=0;pos<g;pos++){
+      lc.setLed(barRed[pos][0],barRed[pos][1],barRed[pos][2],true);
+      delay(delaytime);
     }
+    
+  int lim = g+s;
+  // display storage value
+    for (int pos=g;pos<lim;pos++){
+    lc.setLed(barGreen[pos][0],barGreen[pos][1],barGreen[pos][2],true);
     delay(delaytime);
   }
 
-}
- /* }
-  //Red leds progression
-  for (int pos=0;pos<36;pos++){
-    lc.setLed(barRed[pos][0],barRed[pos][1],barRed[pos][2],true);
-    delay(10);
   }
-  // Clear display
-for(int address=0;address<devices;address++) {
-    lc.clearDisplay(address);
-}
-//Green+Red leds progression
-for (int pos=0;pos<36;pos++){
-    lc.setLed(barRed[pos][0],barRed[pos][1],barRed[pos][2],true);
-    lc.setLed(barGreen[pos][0],barGreen[pos][1],barGreen[pos][2],true);
-    delay(10);
-  }
-// Clear display
-for(int address=0;address<devices;address++) {
-    lc.clearDisplay(address);
-}
-
-}
 
 
-  
-  /*
-  // Iterate over MAX devices
-  for(int address=0;address<1;address++) {
-    // Iterate over rows(Digits)
-    for(int row=0;row<8;row++) {
-      // Iterate over columns(Segments)
-      for(int col=0;col<8;col++) {
-        lc.setLed(address,row,col,true);
-        delay(delaytime);
-      }
-    }
-}
-
-
-// Clear display
-for(int address=0;address<devices;address++) {
-    lc.clearDisplay(address);
-  }
-}
-
-/* Set the status of a single Led.
- * Params :
- *   addr  address of the display
- *   row   the row of the Led (0..7)
- *   col   the column of the Led (0..7)
- *   state If true the led is switched on, if false it is switched off 
- *   void setLed(int addr, int row(digit), int col(segment), boolean state); 
-*/ 
+ 
