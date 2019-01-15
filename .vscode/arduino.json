@@ -1,5 +1,5 @@
 {
-    "sketch": "src/bars_function_test/bars_function_test.ino",
+    "sketch": "src/bars_function_test2/bars_function_test2.ino",
     "board": "adafruit:samd:adafruit_feather_m0",
     "port": "/dev/cu.usbmodem1411"
 }

@@ -32,10 +32,11 @@ int wait = 50;
 unsigned long delaytime = 15;
 
 
+
 void setup() {
   Serial.begin(9600);
-  delay(1000);
-  Serial.println("Kettle controller booting up!");
+  //delay(1000);
+  //Serial.println("Kettle controller booting up!");
 
   // Initialize pins
   pinMode(LED_BUILTIN, OUTPUT);
@@ -57,14 +58,20 @@ void setup() {
     /* and clear the display */
     lc.clearDisplay(address);
   }
+
+//start with random values
+int grid = random(3,26);
+int stor = random(2,10);
+
+  // Display starting grid and storage values
+  displayBar(grid, stor);  
 }
 
 
 void loop() {
-  //start with random values
- int grid = random(3,26);
- int stor = random(2,10);
- displayBar(grid, stor);  
+
+}
+ /*
  delay(500);
 // Clear display
   int devices = lc.getDeviceCount();
@@ -73,7 +80,7 @@ for(int address=0;address<devices;address++) {
   }
  
 }
-
+*/
 
 
 // Function definition
