@@ -64,7 +64,7 @@ void setup()
     /*The MAX72XX is in power-saving mode on startup*/
     lc.shutdown(address, false);
     /* Set the brightness to a medium values */
-    lc.setIntensity(address, 15);
+    lc.setIntensity(address, 0);
     /* and clear the display */
     lc.clearDisplay(address);
   }
@@ -72,45 +72,54 @@ void setup()
 
 void loop()
 {
+  int devices = lc.getDeviceCount();
   // Start with random values
-  grid = random(8,26);
-  stor1 = random(4,10);
+  grid = random(8, 26);
+  stor1 = random(4, 10);
   sel1 = random(-9, 9);
   sel2 = random(-9, 9);
   sel3 = random(-9, 9);
-karma = random(-999, 999);
+  karma = random(-999, 999);
+
   // Display starting grid and storage values
   displayBar(grid, stor1);
+  delay(5);
 
   // Display selector values
   printSelNum(sel1, 0);
   printSelNum(sel2, 1);
   printSelNum(sel3, 2);
+  delay(5);
 
   // Display karma value
   printKarmaNum(karma);
+  delay(5);
+
+  fadeIn(15);
 
   delay(500);
   // Now we change the value of stor
   stor2 = stor1 - random(2, 5);
   // Now we blink the amount that will be modified
-  //modBlink(stor1 - stor2);
+  modBlink(stor1 - stor2);
 
   // Animated transition to new storage value
   modBar(stor1, stor2);
 
   delay(1000);
+
+  fadeOut(15);
+
   // Clear display
-  int devices = lc.getDeviceCount();
   for (int address = 0; address < devices; address++)
   {
     lc.clearDisplay(address);
   }
+  delay(1000);
 }
 
-
-
 // FUNCTIONS
+// Modify bar display after user action
 void modBar(int s1, int s2)
 {
   int lim = grid + stor1;
@@ -237,7 +246,6 @@ void printKarmaNum(int v)
   tens = v % 10;
   v = v / 10;
   hundreds = v;
-  
 
   if (negative)
   {
@@ -253,4 +261,40 @@ void printKarmaNum(int v)
   lc.setDigit(2, 1, (byte)hundreds, false);
   lc.setDigit(2, 2, (byte)tens, false);
   lc.setDigit(2, 3, (byte)ones, false);
+}
+
+// Fade in
+// fadeIn(delayBetweenupdates)
+void fadeIn(int d)
+{
+  int devices = lc.getDeviceCount();
+  for (int intensity = 0; intensity <= 15; intensity++)
+  {
+    //Serial.println("intensity");
+    for (int address = 0; address < devices; address++)
+    {
+      // Iterate over rows(Digits)
+      lc.setIntensity(address, intensity);
+      delay(d);
+      //delay(delaytime);
+    }
+  }
+}
+
+// Fade out
+// fadeOut(delayBetweenupdates)
+void fadeOut(int d)
+{
+  int devices = lc.getDeviceCount();
+  for (int intensity = 15; intensity > 0; intensity--)
+  {
+    //Serial.println("intensity");
+    for (int address = 0; address < devices; address++)
+    {
+      // Iterate over rows(Digits)
+      lc.setIntensity(address, intensity);
+      delay(d);
+      //delay(delaytime);
+    }
+  }
 }
