@@ -34,7 +34,8 @@ unsigned long delaytime = 15;
 
 // set initial values
 int grid = 0;
-int stor = 0;
+int stor1 = 0;
+int stor2 = 0;
 int karma = 10;
 
 void setup()
@@ -68,18 +69,24 @@ void setup()
 
 void loop()
 {
-  int gridMod = 3;
-  int storMod = 2;
-  
+  // Start with random values
+  grid = random(3, 26);
+  stor1 = random(4, 10);
   // Display starting grid and storage values
-  displayBar(grid, stor);
-
-  // Change grid and storage values
-
-  // Update display with same function
-
-
+  displayBar(grid, stor1);
+  delay(500);
+  // Now we change the value of stor
+  stor2 = stor1 - random(1,4);
+  modBar(stor1, stor2);
+  delay(500);
+  // Clear display
+  int devices = lc.getDeviceCount();
+  for (int address = 0; address < devices; address++)
+  {
+    lc.clearDisplay(address);
+  }
 }
+
 /*
  delay(500);
 // Clear display
@@ -90,6 +97,16 @@ for(int address=0;address<devices;address++) {
  
 }
 */
+
+void modBar(int s1, int s2)
+{
+  int lim = grid + stor1;
+  for (int pos = lim; pos >= (lim - (s1 - s2)); pos--)
+  {
+    lc.setLed(barGreen[pos][0], barGreen[pos][1], barGreen[pos][2], false);
+    delay(delaytime*5);
+  }
+}
 
 // displayBar(grid value, store value, color)
 void displayBar(int g, int s)
