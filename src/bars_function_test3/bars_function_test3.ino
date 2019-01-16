@@ -32,9 +32,10 @@ int wait = 50;
 
 unsigned long delaytime = 15;
 
-//start with random values
-int grid = 20;
-int stor = 10;
+// set initial values
+int grid = 0;
+int stor = 0;
+int karma = 10;
 
 void setup()
 {
