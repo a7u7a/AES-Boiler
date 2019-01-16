@@ -1,4 +1,5 @@
-// Bar display initial animation + blink according to some modifier value
+// Bar display animation function back and forth
+// The idea is to make a single function for initial values and later for when grid and storage values have been modified. keeping the animation style.
 // todo: create function that takes a value and a color and displays the value in the specified color. Similar to printNum function
 
 //We always have to include the library
@@ -66,17 +67,17 @@ void setup()
 
 void loop()
 {
-
+  int gridMod = 3;
+  int storMod = 2;
+  
   // Display starting grid and storage values
   displayBar(grid, stor);
 
-  // if grid and storage values have to be modified
-  // take the modifier values and make leds blink from last to first
+  // Change grid and storage values
 
-  int gridMod = 3;
-  int storMod = 2;
+  // Update display with same function
 
-  blinkMod(gridMod, storMod);
+
 }
 /*
  delay(500);
@@ -88,30 +89,6 @@ for(int address=0;address<devices;address++) {
  
 }
 */
-
-// blinkMod(gridModifier, storageModifier)
-void blinkMod(int gm, int sm)
-{
-  for (int pos = grid - gm; pos < grid; pos++)
-  {
-    lc.setLed(barRed[pos][0], barRed[pos][1], barRed[pos][2], false);
-  }
-  for (int pos = stor + grid - sm; pos < stor + grid; pos++)
-  {
-    lc.setLed(barGreen[pos][0], barGreen[pos][1], barGreen[pos][2], false);
-  }
-  delay(40);
-
-  for (int pos = grid - gm; pos < grid; pos++)
-  {
-    lc.setLed(barRed[pos][0], barRed[pos][1], barRed[pos][2], true);
-  }
-  for (int pos = stor + grid - sm; pos < stor + grid; pos++)
-  {
-    lc.setLed(barGreen[pos][0], barGreen[pos][1], barGreen[pos][2], true);
-  }
-  delay(80);
-}
 
 // displayBar(grid value, store value, color)
 void displayBar(int g, int s)
