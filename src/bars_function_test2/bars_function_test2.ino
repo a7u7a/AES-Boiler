@@ -113,6 +113,8 @@ void blinkMod(int gm, int sm)
   delay(80);
 }
 
+
+
 // displayBar(grid value, store value, color)
 void displayBar(int g, int s)
 {

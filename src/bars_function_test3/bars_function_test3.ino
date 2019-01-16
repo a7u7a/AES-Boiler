@@ -71,12 +71,15 @@ void loop()
 {
   // Start with random values
   grid = random(3, 26);
-  stor1 = random(4, 10);
+  stor1 = random(5, 10);
   // Display starting grid and storage values
   displayBar(grid, stor1);
   delay(500);
   // Now we change the value of stor
-  stor2 = stor1 - random(1,4);
+  stor2 = stor1 - random(2, 5);
+  // Now we blink the amount that will be modified
+  modBlink(stor1 - stor2);
+
   modBar(stor1, stor2);
   delay(500);
   // Clear display
@@ -98,13 +101,35 @@ for(int address=0;address<devices;address++) {
 }
 */
 
+// modBar()
 void modBar(int s1, int s2)
 {
   int lim = grid + stor1;
   for (int pos = lim; pos >= (lim - (s1 - s2)); pos--)
   {
     lc.setLed(barGreen[pos][0], barGreen[pos][1], barGreen[pos][2], false);
-    delay(delaytime*5);
+    delay(delaytime * 5);
+  }
+}
+
+// modBlink(storageModifier)
+void modBlink(int sm)
+{
+  // blink 4 times
+  for (int i = 0; i < 8; i++)
+  {
+    {
+      for (int pos = stor1 + grid - sm; pos < stor1 + grid; pos++)
+      {
+        lc.setLed(barGreen[pos][0], barGreen[pos][1], barGreen[pos][2], false);
+      }
+      delay(40);
+      for (int pos = stor1 + grid - sm; pos < stor1 + grid; pos++)
+      {
+        lc.setLed(barGreen[pos][0], barGreen[pos][1], barGreen[pos][2], true);
+      }
+      delay(80);
+    }
   }
 }
 
