@@ -36,7 +36,10 @@ unsigned long delaytime = 15;
 int grid = 0;
 int stor1 = 0;
 int stor2 = 0;
-int karma = 10;
+int karma = 0;
+int sel1 = 0;
+int sel2 = 0;
+int sel3 = 0;
 
 void setup()
 {
@@ -70,18 +73,33 @@ void setup()
 void loop()
 {
   // Start with random values
-  grid = random(8, 26);
-  stor1 = random(5, 10);
+  grid = random(8,26);
+  stor1 = random(4,10);
+  sel1 = random(-9, 9);
+  sel2 = random(-9, 9);
+  sel3 = random(-9, 9);
+karma = random(-999, 999);
   // Display starting grid and storage values
   displayBar(grid, stor1);
+
+  // Display selector values
+  printSelNum(sel1, 0);
+  printSelNum(sel2, 1);
+  printSelNum(sel3, 2);
+
+  // Display karma value
+  printKarmaNum(karma);
+
   delay(500);
   // Now we change the value of stor
   stor2 = stor1 - random(2, 5);
   // Now we blink the amount that will be modified
-  modBlink(stor1 - stor2);
+  //modBlink(stor1 - stor2);
 
+  // Animated transition to new storage value
   modBar(stor1, stor2);
-  delay(500);
+
+  delay(1000);
   // Clear display
   int devices = lc.getDeviceCount();
   for (int address = 0; address < devices; address++)
@@ -90,18 +108,9 @@ void loop()
   }
 }
 
-/*
- delay(500);
-// Clear display
-  int devices = lc.getDeviceCount();
-for(int address=0;address<devices;address++) {
-    lc.clearDisplay(address);
-  }
- 
-}
-*/
 
-// modBar()
+
+// FUNCTIONS
 void modBar(int s1, int s2)
 {
   int lim = grid + stor1;
@@ -123,7 +132,7 @@ void modBlink(int sm)
       {
         lc.setLed(barGreen[pos][0], barGreen[pos][1], barGreen[pos][2], false);
       }
-      delay(40);
+      delay(30);
       for (int pos = stor1 + grid - sm; pos < stor1 + grid; pos++)
       {
         lc.setLed(barGreen[pos][0], barGreen[pos][1], barGreen[pos][2], true);
@@ -140,7 +149,7 @@ void displayBar(int g, int s)
   for (int pos = 0; pos < g; pos++)
   {
     lc.setLed(barRed[pos][0], barRed[pos][1], barRed[pos][2], true);
-    delay(delaytime);
+    //delay(delaytime);
   }
 
   int lim = g + s;
@@ -148,6 +157,100 @@ void displayBar(int g, int s)
   for (int pos = g; pos < lim; pos++)
   {
     lc.setLed(barGreen[pos][0], barGreen[pos][1], barGreen[pos][2], true);
-    delay(delaytime);
+    //delay(delaytime);
   }
+}
+
+// Function to display selector number
+// Arguments: printSelNum(display value, selection position)
+void printSelNum(int v, int p)
+{
+  int ones;
+  int onesDigit;
+  int tensDigit;
+  int address;
+  boolean negative = false;
+
+  if (p == 0)
+  {
+    address = 1;
+    tensDigit = 3;
+    onesDigit = 4;
+  }
+  if (p == 1)
+  {
+    address = 1;
+    tensDigit = 5;
+    onesDigit = 6;
+  }
+  if (p == 2)
+  {
+    address = 2;
+    tensDigit = 4;
+    onesDigit = 5;
+  }
+
+  if (v < -9 || v > 9)
+    return;
+  if (v < 0)
+  {
+    negative = true;
+    v = v * -1;
+  }
+  ones = v % 10;
+  v = v / 10;
+
+  if (negative)
+  {
+    //print character '-' in the leftmost column
+    lc.setChar(address, tensDigit, '-', false);
+  }
+  else
+  {
+    //print a blank in the sign column
+    lc.setChar(address, tensDigit, ' ', false);
+  }
+  //Now print the number digit by digit
+  //lc.setDigit(address, tensDigit, (byte)tens, false);
+  lc.setDigit(address, onesDigit, (byte)ones, false);
+}
+
+// Function to display Karma number
+void printKarmaNum(int v)
+{
+  int ones;
+  int tens;
+  int hundreds;
+  int thousands;
+
+  boolean negative = false;
+
+  if (v < -999 || v > 999)
+    return;
+  if (v < 0)
+  {
+    negative = true;
+    v = v * -1;
+  }
+  ones = v % 10;
+  v = v / 10;
+  tens = v % 10;
+  v = v / 10;
+  hundreds = v;
+  
+
+  if (negative)
+  {
+    //print character '-' in the leftmost column
+    lc.setChar(2, 0, '-', false);
+  }
+  else
+  {
+    //print a blank in the sign column
+    lc.setChar(2, 0, ' ', false);
+  }
+  //Now print the number digit by digit
+  lc.setDigit(2, 1, (byte)hundreds, false);
+  lc.setDigit(2, 2, (byte)tens, false);
+  lc.setDigit(2, 3, (byte)ones, false);
 }

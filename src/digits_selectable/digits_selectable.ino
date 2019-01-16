@@ -53,8 +53,8 @@ void setup() {
 }
 
 void loop() {
-  int position;
-
+  //int position;
+/*
   if (digitalRead(S1) == HIGH){
     position = 0;
     Serial.println("Position 0");
@@ -76,13 +76,15 @@ void loop() {
     lc.clearDisplay(2);
     delay(1);
   }
-  
+  */
   int devices=lc.getDeviceCount();
 
+for(int position = 0; position<=2;position++){
   for(int count = 0;count<10;count++){
-  printSelNum(count*-1, position);
+  printSelNum(count, position);
   delay(delaytime*2);
   }
+}
 
    // Print numbers on karma display counter
   /*for(int countK = 0;countK<999;countK++){
@@ -131,14 +133,13 @@ void loop() {
   }
 
 
-// Function to display rotary switch selection number
+// Function to display selector number
 // Arguments: printSelNum(display value, selection position)
   void printSelNum(int v, int p) {
     int ones;
-    int tens;
-    int address;
+    int onesDigit;
     int tensDigit;
-    int onesDigit; 
+    int address;
 
     boolean negative = false;
 
@@ -159,7 +160,7 @@ void loop() {
     onesDigit = 5;
     }
 
-    if (v < -99 || v > 99)
+    if (v < -9 || v > 9)
       return;
     if (v < 0) {
       negative = true;
@@ -167,8 +168,6 @@ void loop() {
     }
     ones = v % 10;
     v = v / 10;
-    tens = v;
-    
 
     if (negative) {
       //print character '-' in the leftmost column
