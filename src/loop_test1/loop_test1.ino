@@ -13,6 +13,20 @@ LedControl lc = LedControl(10, 12, 11, 3);
 const int barGreen[36][3] = {{1, 0, 2}, {1, 0, 4}, {1, 0, 6}, {1, 0, 0}, {1, 1, 2}, {1, 1, 4}, {1, 1, 6}, {1, 1, 0}, {1, 2, 2}, {1, 2, 4}, {1, 2, 6}, {1, 2, 0}, {0, 0, 2}, {0, 0, 4}, {0, 0, 6}, {0, 0, 0}, {0, 1, 2}, {0, 1, 4}, {0, 1, 6}, {0, 1, 0}, {0, 2, 2}, {0, 2, 4}, {0, 2, 6}, {0, 2, 0}, {0, 3, 2}, {0, 3, 4}, {0, 3, 6}, {0, 3, 0}, {0, 4, 2}, {0, 4, 4}, {0, 4, 6}, {0, 4, 0}, {0, 5, 2}, {0, 5, 4}, {0, 5, 6}, {0, 5, 0}};
 const int barRed[36][3] = {{1, 0, 1}, {1, 0, 3}, {1, 0, 5}, {1, 0, 7}, {1, 1, 1}, {1, 1, 3}, {1, 1, 5}, {1, 1, 7}, {1, 2, 1}, {1, 2, 3}, {1, 2, 5}, {1, 2, 7}, {0, 0, 1}, {0, 0, 3}, {0, 0, 5}, {0, 0, 7}, {0, 1, 1}, {0, 1, 3}, {0, 1, 5}, {0, 1, 7}, {0, 2, 1}, {0, 2, 3}, {0, 2, 5}, {0, 2, 7}, {0, 3, 1}, {0, 3, 3}, {0, 3, 5}, {0, 3, 7}, {0, 4, 1}, {0, 4, 3}, {0, 4, 5}, {0, 4, 7}, {0, 5, 1}, {0, 5, 3}, {0, 5, 5}, {0, 5, 7}};
 
+/* Karma Modifiers table:
+gridstate: 
+(Reference: statekey = staterange = LEDrange)
+1 = Low = 1-8
+2 = Mid = 9-18
+3 = High = 19-26
+storagestate:
+1 = Low = 1-3
+2 = Mid = 4-7
+3 = High = 8-10
+*/
+// {gridstate, storagestate, boilmodifier, storemodifier, givemodifier}
+const int kMods[4][5] = {{3, 3, 4, 4, -8}, {3, 1, 4, 8, -2}, {1, 3, -4, -8, 8}, {1, 1, -4, -4, 8}}
+
 // Rotary switch pins
 const int S1 = 6;
 const int S2 = 5;
@@ -54,12 +68,21 @@ void setup()
   // Initialize pins
   pinMode(LED_BUILTIN, OUTPUT);
   pinMode(solenoidPin, OUTPUT);
-  digitalWrite(solenoidPin, LOW);
   pinMode(S1, INPUT);
   pinMode(S2, INPUT);
   pinMode(S3, INPUT);
   pinMode(usrBtnPin, INPUT);
   pinMode(staBtnPin, INPUT);
+
+/*
+For some reason the assigned Solenoidpin goes high when the board is powered up,
+this will make the kettle boil water. This step will press the kettle button again to turn it off:
+*/ 
+  digitalWrite(solenoidPin, LOW);
+  delay(500);
+  digitalWrite(solenoidPin, HIGH);
+  delay(500);
+  digitalWrite(solenoidPin, LOW);
 
   // Initialize display drivers
   int devices = lc.getDeviceCount();
@@ -108,20 +131,23 @@ void loop()
   {
     if (digitalRead(S1) == HIGH)
     {
+      // Boil
       boil = true;
       kDelta = sel1;
     }
     if (digitalRead(S2) == HIGH)
     {
+      // Store
       kDelta = sel2;
     }
     if (digitalRead(S3) == HIGH)
     {
+      // Give
       kDelta = sel3;
     }
   }
 
- // Activate boiler
+  // Activate boiler
   if (boil)
   {
     digitalWrite(solenoidPin, HIGH);
