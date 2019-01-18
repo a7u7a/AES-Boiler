@@ -51,9 +51,9 @@ int grid = 0;
 int stor1 = 0;
 int stor2 = 0;
 int karma = 10;
-int sel1 = 0;
-int sel2 = 0;
-int sel3 = 0;
+int selBoil = 0;
+int selStore = 0;
+int selGive = 0;
 int nrgcost = 4;
 int kDelta = 0;
 
@@ -103,18 +103,18 @@ void loop()
   // Start with random values
   grid = random(8, 26);
   stor1 = random(4, 10);
-  sel1 = random(-9, 9);
-  sel2 = random(-9, 9);
-  sel3 = random(-9, 9);
+  selBoil = random(-9, 9);
+  selStore = random(-9, 9);
+  selGive = random(-9, 9);
 
   // Display starting grid and storage values
   displayBar(grid, stor1);
   delay(5);
 
   // Display selector values
-  printSelNum(sel1, 0);
-  printSelNum(sel2, 1);
-  printSelNum(sel3, 2);
+  printSelNum(selBoil, 0);
+  printSelNum(selStore, 1);
+  printSelNum(selGive, 2);
   delay(5);
 
   // Display karma value
@@ -133,17 +133,17 @@ void loop()
     {
       // Boil
       boil = true;
-      kDelta = sel1;
+      kDelta = selBoil;
     }
     if (digitalRead(S2) == HIGH)
     {
       // Store
-      kDelta = sel2;
+      kDelta = selStore;
     }
     if (digitalRead(S3) == HIGH)
     {
       // Give
-      kDelta = sel3;
+      kDelta = selGive;
     }
   }
 
