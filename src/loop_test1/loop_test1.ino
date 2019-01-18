@@ -36,10 +36,14 @@ unsigned long delaytime = 15;
 int grid = 0;
 int stor1 = 0;
 int stor2 = 0;
-int karma = 0;
+int karma = 10;
 int sel1 = 0;
 int sel2 = 0;
 int sel3 = 0;
+int nrgcost = 4;
+int kDelta = 0;
+
+bool boil = false;
 
 void setup()
 {
@@ -79,7 +83,6 @@ void loop()
   sel1 = random(-9, 9);
   sel2 = random(-9, 9);
   sel3 = random(-9, 9);
-  karma = random(-999, 999);
 
   // Display starting grid and storage values
   displayBar(grid, stor1);
@@ -92,19 +95,52 @@ void loop()
   delay(5);
 
   // Display karma value
-  printKarmaNum(karma);
+  int kd1 = karma;
+  printKarmaNum(kd1);
   delay(5);
 
   fadeIn(15);
+  delay(100);
 
-  delay(500);
-  // Now we change the value of stor
-  stor2 = stor1 - random(2, 5);
+  // Wait for user to choose option and press Button
+  // Set karma delta accordingly
+  while (digitalRead(usrBtnPin) == LOW)
+  {
+    if (digitalRead(S1) == HIGH)
+    {
+      boil = true;
+      kDelta = sel1;
+    }
+    if (digitalRead(S2) == HIGH)
+    {
+      kDelta = sel2;
+    }
+    if (digitalRead(S3) == HIGH)
+    {
+      kDelta = sel3;
+    }
+  }
+
+ // Activate boiler
+  if (boil)
+  {
+    digitalWrite(solenoidPin, HIGH);
+    delay(300);
+    digitalWrite(solenoidPin, LOW);
+    boil = false;
+  }
+
+  // Now we change the value of stor according to nrgcost of boiling
+  stor2 = stor1 - nrgcost;
+
   // Now we blink the amount that will be modified
   modBlink(stor1 - stor2);
 
   // Animated transition to new storage value
   modBar(stor1, stor2);
+
+  delay(500);
+  karma = modKarma(karma, kDelta);
 
   delay(1000);
 
@@ -297,4 +333,27 @@ void fadeOut(int d)
       //delay(delaytime);
     }
   }
+}
+
+int modKarma(int k1, int kd)
+{
+  int k2 = k1 + kd;
+  // If kDelta is smaller than 0
+  if (kd < 0)
+  {
+    for (int countK = k1; countK >= k2; countK--)
+    {
+      printKarmaNum(countK);
+      delay(150);
+    }
+  }
+  else
+  {
+    for (int countK = k1; countK <= k2; countK++)
+    {
+      printKarmaNum(countK);
+      delay(150);
+    }
+  }
+  return k2;
 }
