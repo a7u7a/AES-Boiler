@@ -13,9 +13,18 @@ LedControl lc = LedControl(10, 12, 11, 3);
 const int barGreen[36][3] = {{1, 0, 2}, {1, 0, 4}, {1, 0, 6}, {1, 0, 0}, {1, 1, 2}, {1, 1, 4}, {1, 1, 6}, {1, 1, 0}, {1, 2, 2}, {1, 2, 4}, {1, 2, 6}, {1, 2, 0}, {0, 0, 2}, {0, 0, 4}, {0, 0, 6}, {0, 0, 0}, {0, 1, 2}, {0, 1, 4}, {0, 1, 6}, {0, 1, 0}, {0, 2, 2}, {0, 2, 4}, {0, 2, 6}, {0, 2, 0}, {0, 3, 2}, {0, 3, 4}, {0, 3, 6}, {0, 3, 0}, {0, 4, 2}, {0, 4, 4}, {0, 4, 6}, {0, 4, 0}, {0, 5, 2}, {0, 5, 4}, {0, 5, 6}, {0, 5, 0}};
 const int barRed[36][3] = {{1, 0, 1}, {1, 0, 3}, {1, 0, 5}, {1, 0, 7}, {1, 1, 1}, {1, 1, 3}, {1, 1, 5}, {1, 1, 7}, {1, 2, 1}, {1, 2, 3}, {1, 2, 5}, {1, 2, 7}, {0, 0, 1}, {0, 0, 3}, {0, 0, 5}, {0, 0, 7}, {0, 1, 1}, {0, 1, 3}, {0, 1, 5}, {0, 1, 7}, {0, 2, 1}, {0, 2, 3}, {0, 2, 5}, {0, 2, 7}, {0, 3, 1}, {0, 3, 3}, {0, 3, 5}, {0, 3, 7}, {0, 4, 1}, {0, 4, 3}, {0, 4, 5}, {0, 4, 7}, {0, 5, 1}, {0, 5, 3}, {0, 5, 5}, {0, 5, 7}};
 
+// Limit for 2 minute each state: 485000
+const int timerLimit = 8000;
+int kettleState = 0;
+
+// 2 minutes = 120000
+int interval = 120000;
+
+unsigned long previousMillis = 0; // will store last time LED was updated
+
 /* Karma Modifiers table:
 gridstate: 
-(Reference: statekey = staterange = LEDrange)
+(Reference: statekey = LEDrange)
 1 = Low = 1-8
 2 = Mid = 9-18
 3 = High = 19-26
@@ -23,9 +32,23 @@ storagestate:
 1 = Low = 1-3
 2 = Mid = 4-7
 3 = High = 8-10
+
+sample output:
+kettleState: 2, 24, 1, 4, 8, -2
+kettleState: 3, 4, 9, -4, -8, 8
+kettleState: 4, 4, 1, -4, -4, 8
+kettleState: 1, 21, 9, 4, 4, -8
+kettleState: 2, 23, 2, 4, 8, -2
+kettleState: 3, 6, 9, -4, -8, 8
+kettleState: 4, 4, 2, -4, -4, 8
+kettleState: 1, 20, 9, 4, 4, -8
+
 */
-// {gridstate, storagestate, boilmodifier, storemodifier, givemodifier}
-const int kMods[4][5] = {{3, 3, 4, 4, -8}, {3, 1, 4, 8, -2}, {1, 3, -4, -8, 8}, {1, 1, -4, -4, 8}}
+// {gridRangeMin, gridRangeMax, storeRangeMin, storeRangeMax, boilmodifier, storemodifier, givemodifier}
+const int kMods[4][7] = {{19, 26, 8, 10, 4, 4, -8},
+                         {19, 26, 2, 3, 4, 8, -2},
+                         {4, 8, 8, 10, -4, -8, 8},
+                         {4, 8, 2, 3, -4, -4, 8}};
 
 // Rotary switch pins
 const int S1 = 6;
@@ -41,9 +64,7 @@ int staBtnState = 0;
 
 // Solenoid pin
 int solenoidPin = A0;
-
 int wait = 50;
-
 unsigned long delaytime = 15;
 
 // set initial values
@@ -54,7 +75,7 @@ int karma = 10;
 int selBoil = 0;
 int selStore = 0;
 int selGive = 0;
-int nrgcost = 4;
+int nrgcost = 2;
 int kDelta = 0;
 
 bool boil = false;
@@ -74,10 +95,10 @@ void setup()
   pinMode(usrBtnPin, INPUT);
   pinMode(staBtnPin, INPUT);
 
-/*
+  /*
 For some reason the assigned Solenoidpin goes high when the board is powered up,
 this will make the kettle boil water. This step will press the kettle button again to turn it off:
-*/ 
+*/
   digitalWrite(solenoidPin, LOW);
   delay(500);
   digitalWrite(solenoidPin, HIGH);
@@ -99,13 +120,27 @@ this will make the kettle boil water. This step will press the kettle button aga
 
 void loop()
 {
+  nrgcost = 2;
   int devices = lc.getDeviceCount();
-  // Start with random values
-  grid = random(8, 26);
-  stor1 = random(4, 10);
-  selBoil = random(-9, 9);
-  selStore = random(-9, 9);
-  selGive = random(-9, 9);
+
+  unsigned long currentMillis = millis();
+  if (currentMillis - previousMillis >= interval)
+  {
+    // save the last time you blinked the LED
+    previousMillis = currentMillis;
+    kettleState++;
+    if (kettleState >= 4)
+    {
+      kettleState = 0;
+    }
+  }
+
+  // Get state for grid and storage and modifier values
+  grid = random(kMods[kettleState][0], kMods[kettleState][1]);
+  stor1 = random(kMods[kettleState][2], kMods[kettleState][3]);
+  selBoil = kMods[kettleState][4];
+  selStore = kMods[kettleState][5];
+  selGive = kMods[kettleState][6];
 
   // Display starting grid and storage values
   displayBar(grid, stor1);
@@ -139,6 +174,7 @@ void loop()
     {
       // Store
       kDelta = selStore;
+      nrgcost = 0;
     }
     if (digitalRead(S3) == HIGH)
     {
@@ -178,6 +214,12 @@ void loop()
     lc.clearDisplay(address);
   }
   delay(1000);
+
+  // Reset timer so it does not overflow
+  if (currentMillis > timerLimit)
+  {
+    currentMillis = 0;
+  }
 }
 
 // FUNCTIONS
