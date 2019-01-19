@@ -7,7 +7,7 @@
 unsigned long previousMillis = 0; // will store last time LED was updated
 
 // constants won't change:
-const long interval = 3000; // interval at which to blink (milliseconds)
+const long interval = 1000; // interval at which to blink (milliseconds)
 // 485000
 const int timerLimit = 8000;
 
@@ -20,7 +20,7 @@ int selBoil = 0;
 int selStore = 0;
 int selGive = 0;
 
-bool bugMode = 0;
+bool bugMode = false;
 
 const int staBtnPin = 20; // State change button. Pin also labeled 'SDA' on the Feather
 
@@ -55,7 +55,7 @@ const int kMods[4][7] = {{19, 26, 8, 10, 4, 4, -8},
 void setup()
 {
   Serial.begin(9600);
-  attachInterrupt(staBtnPin, bugTrigger, CHANGE);
+  attachInterrupt(staBtnPin, bugTrigger, RISING);
 }
 
 void loop()
@@ -120,3 +120,7 @@ void bugTrigger()
     bugMode = false;
   }
 }
+
+
+// Add software debounce
+// light up a dot to show
