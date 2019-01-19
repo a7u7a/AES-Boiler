@@ -130,20 +130,7 @@ void loop()
   int devices = lc.getDeviceCount();
   boil = false;
 
-  // Randomly turn kettle boiler on if bugMode is ON
-  //randomBoil();
-
   unsigned long currentMillis = millis();
-  if (currentMillis - previousMillis >= interval)
-  {
-    // save the last time you blinked the LED
-    previousMillis = currentMillis;
-    kettleState++;
-    if (kettleState >= 4)
-    {
-      kettleState = 0;
-    }
-  }
 
   // Get state for grid and storage and modifier values
   grid = random(kMods[kettleState][0], kMods[kettleState][1]);
@@ -177,6 +164,15 @@ void loop()
   // Set karma delta accordingly
   while (digitalRead(usrBtnPin) == LOW)
   {
+    if (bugMode)
+    {
+      if (currentMillis - previousMillis >= interval)
+      {
+        previousMillis = currentMillis;
+        boilNow();
+      }
+    }
+
     if (digitalRead(S1) == HIGH)
     {
       // Boil
@@ -200,26 +196,14 @@ void loop()
     }
   }
 
-  // Activate boiler
+  // Once button is pressed bugMode will be on
+  bugMode = true;
+
+  // Activate boiler if that was the selected option
   if (boil)
   {
     boilNow();
   }
-
-  // If bugmode is on it may not activate the kettle!
-  /*
-  if (bugMode)
-  {
-    randomBoil();
-  }
-  else
-  {
-    if(boil)
-    {
-      boilNow();
-    }
-  }
-  */
 
   // Now we change the value of stor according to nrgcost of boiling
   stor2 = stor1 - nrgcost;
@@ -463,6 +447,7 @@ int modKarma(int k1, int kd)
   return k2;
 }
 
+/*
 void bugTrigger()
 {
   button_time = millis();
@@ -481,6 +466,7 @@ void bugTrigger()
     last_button_time = button_time;
   }
 }
+*/
 
 void randomBoil()
 {
