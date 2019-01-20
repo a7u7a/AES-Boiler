@@ -12,24 +12,34 @@ const int barGreen[36][3] = {{1, 0, 2}, {1, 0, 4}, {1, 0, 6}, {1, 0, 0}, {1, 1, 
 const int barRed[36][3] = {{1, 0, 1}, {1, 0, 3}, {1, 0, 5}, {1, 0, 7}, {1, 1, 1}, {1, 1, 3}, {1, 1, 5}, {1, 1, 7}, {1, 2, 1}, {1, 2, 3}, {1, 2, 5}, {1, 2, 7}, {0, 0, 1}, {0, 0, 3}, {0, 0, 5}, {0, 0, 7}, {0, 1, 1}, {0, 1, 3}, {0, 1, 5}, {0, 1, 7}, {0, 2, 1}, {0, 2, 3}, {0, 2, 5}, {0, 2, 7}, {0, 3, 1}, {0, 3, 3}, {0, 3, 5}, {0, 3, 7}, {0, 4, 1}, {0, 4, 3}, {0, 4, 5}, {0, 4, 7}, {0, 5, 1}, {0, 5, 3}, {0, 5, 5}, {0, 5, 7}};
 
 // Limit for 2 minute each state: 485000
-const int timerLimit = 250000;
+const int timerLimit = 8000;
 int kettleState = 0;
 
 // 2 minutes = 120000
-int interval = 5000;
+int interval = 120000;
 
 unsigned long previousMillis = 0; // will store last time LED was updated
 
 /* Karma Modifiers table:
 gridstate: 
 (Reference: statekey = LEDrange)
-Low = 1-8
-Mid = 9-18
-High = 19-26
+1 = Low = 1-8
+2 = Mid = 9-18
+3 = High = 19-26
 storagestate:
-Low = 1-3
-Mid = 4-7
-High = 8-10
+1 = Low = 1-3
+2 = Mid = 4-7
+3 = High = 8-10
+
+sample output:
+kettleState: 2, 24, 1, 4, 8, -2
+kettleState: 3, 4, 9, -4, -8, 8
+kettleState: 4, 4, 1, -4, -4, 8
+kettleState: 1, 21, 9, 4, 4, -8
+kettleState: 2, 23, 2, 4, 8, -2
+kettleState: 3, 6, 9, -4, -8, 8
+kettleState: 4, 4, 2, -4, -4, 8
+kettleState: 1, 20, 9, 4, 4, -8
 
 */
 // {gridRangeMin, gridRangeMax, storeRangeMin, storeRangeMax, boilmodifier, storemodifier, givemodifier}
@@ -47,9 +57,12 @@ const int S3 = 21; // Also labeled 'SCL' on the Feather
 const int usrBtnPin = 9;  // User button
 const int staBtnPin = 20; // State change button. Pin also labeled 'SDA' on the Feather
 
-// Button states
-int usrBtnState = 0;
-int staBtnState = 0;
+bool usrBtnState = false;
+bool staBtnState = false;
+
+long longPressTime = 800;
+boolean longPressActive = false;
+long buttonTimer = 0;
 
 // Solenoid pin
 int solenoidPin = A0;
@@ -69,9 +82,7 @@ int kDelta = 0;
 
 bool boil = false;
 
-bool bugMode;
-
-unsigned long currentMillis;
+bool bugMode = false;
 
 //variables to keep track of the timing of recent interrupts
 unsigned long button_time = 0;
@@ -92,7 +103,7 @@ void setup()
   pinMode(usrBtnPin, INPUT);
   pinMode(staBtnPin, INPUT);
 
-  //attachInterrupt(staBtnPin, bugTrigger, RISING);
+  attachInterrupt(staBtnPin, bugTrigger, RISING);
 
   /*
 For some reason the assigned Solenoidpin goes high when the board is powered up,
@@ -122,6 +133,21 @@ void loop()
 
   int devices = lc.getDeviceCount();
   boil = false;
+
+  // Randomly turn kettle boiler on if bugMode is ON
+  //randomBoil();
+
+  unsigned long currentMillis = millis();
+  if (currentMillis - previousMillis >= interval)
+  {
+    // save the last time you blinked the LED
+    previousMillis = currentMillis;
+    kettleState++;
+    if (kettleState >= 4)
+    {
+      kettleState = 0;
+    }
+  }
 
   // Get state for grid and storage and modifier values
   grid = random(kMods[kettleState][0], kMods[kettleState][1]);
@@ -155,8 +181,7 @@ void loop()
   // Set karma delta accordingly
   while (digitalRead(usrBtnPin) == LOW)
   {
-   currentMillis = millis();  
-
+    currentMillis = millis();
     if (bugMode)
     {
       if (currentMillis - previousMillis >= interval)
@@ -165,7 +190,6 @@ void loop()
         boilNow();
       }
     }
-
     if (digitalRead(S1) == HIGH)
     {
       // Boil
@@ -189,10 +213,20 @@ void loop()
     }
   }
 
-  // Once button is pressed bugMode will be on
-  bugMode = true;
+  // Longpress
+  if (digitalRead(usrBtnPin) == HIGH)
+  {
+    Serial.println("hello1");
+    buttonTimer = millis();
+    if (millis() - buttonTimer >= longPressTime)
+    {
+      Serial.println("hello2");
+      bugMode = !bugMode;
+    }
+    Serial.println("hello3");
+  }
 
-  // Activate boiler if that was the selected option
+  // Activate boiler
   if (boil)
   {
     boilNow();
@@ -440,7 +474,6 @@ int modKarma(int k1, int kd)
   return k2;
 }
 
-/*
 void bugTrigger()
 {
   button_time = millis();
@@ -459,7 +492,6 @@ void bugTrigger()
     last_button_time = button_time;
   }
 }
-*/
 
 void randomBoil()
 {
